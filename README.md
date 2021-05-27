@@ -16,5 +16,7 @@ This article is an introductory guide to the beautiful world of Control Theory f
 
 ‌ This guide assumes that you have experience with the SDK. While this does make it slightly tricky for absolute beginners to follow, it also allows the knowledge to be applicable outside of First Tech Challenge.
 
+_**Please note, all of the code examples are pseudocode of how you would go about a java implementation, understand that there may be a little more work to do than what it shown in the document as these extra details would in many cases take away from the learning experience.**_ 
 
+_\*\*\*\*_
 
