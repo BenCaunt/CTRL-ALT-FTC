@@ -14,7 +14,8 @@ Roadrunner library for FTC: [https://www.learnroadrunner.com/](https://www.learn
 
 FTC specific software guides: [https://gm0.org/en/stable/docs/software/index.html](https://gm0.org/en/stable/docs/software/index.html)
 
-For direct help you can direct message: Ja\#2158 \(Ben\) or ckate\#2907 \(Kate\) on discord
+For direct help you can direct message: Ja\#2158 \(Ben\) or ckate
+\#2907 \(Kate\) on discord!
 
 or email us at: thermalequilibriumftc@gmail.com
 
