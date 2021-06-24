@@ -14,6 +14,8 @@ Roadrunner library for FTC: [https://www.learnroadrunner.com/](https://www.learn
 
 FTC specific software guides: [https://gm0.org/en/stable/docs/software/index.html](https://gm0.org/en/stable/docs/software/index.html)
 
+Controls Engineering in the FIRST Robotics Competition (Graduate-level control theory for high schoolers): [https://file.tavsys.net/control/controls-engineering-in-frc.pdf](https://file.tavsys.net/control/controls-engineering-in-frc.pdf)
+
 For direct help you can direct message: Ja\#2158 \(Ben\) or ckate
 \#2907 \(Kate\) on discord!
 
