@@ -4,7 +4,7 @@ description: >-
   desired heading. However, a few modifications are necessary.
 ---
 
-# Angles and Error Calculations
+# Dealing with Angles
 
 Many may find that attempting to use your PID controller to turn your robot to a desired angle will cause your robot to turn the longest way possible or spin unnecessary rotations.
 

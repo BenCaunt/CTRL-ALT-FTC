@@ -10,7 +10,7 @@
   * [The Derivative Term](the-pid-controller/the-derivative-term.md)
 * [Tuning Methods of a PID Controller](tuning-methods-of-a-pid-controller.md)
 * [Practical Improvements to the PID Controller](practical-improvements-to-pid.md)
-* [Angles and Error Calculations](controlling-heading.md)
+* [Dealing with Angles](controlling-heading.md)
 * [Feedforward Control](feedforward-control.md)
 * [Motion Profiling](motion-profiling.md)
 * [Extra Resources](extra-resources.md)
