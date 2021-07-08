@@ -10,7 +10,7 @@ description: >-
 
 A Kalman filter at the highest level is an algorithm that optimally estimates any given state of a system, given a model of how the system changes over time and knowing a set of sensor measurements. We use a Kalman filter whenever we have doubts about the quality of our sensors, and we require more reliable measurements to control our system with the performance that we desire.
 
-![Optimal Angle Measurement from gyro and odometry with Kalman Filter](../.gitbook/assets/kalman-filter-example.png)
+![LR GYRO + Open Odo + Kalman Filter for Angle Estimation](../.gitbook/assets/optimal-sensor-estimation.png)
 
 ## How does the Kalman Filter work? 
 
