@@ -20,7 +20,7 @@ One common theme in control theory is feedback; feedback can also be used in the
 
 Generally, for FTC scale applications, 'U' is simply an estimate of how much the estimate has changed since t-1. Such as the change in angle between the t and t-1.
 
-This is a very basic estimation of the sensor state and can then be improved with feedback: 
+This is a very basic estimation of the sensor state which can then be improved with feedback: 
 
 ![Using the Kalman gain and a sensor measurement, use feedback on the estimate.](../.gitbook/assets/kalman-gain-op.png)
 
