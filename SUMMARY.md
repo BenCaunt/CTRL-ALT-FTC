@@ -12,6 +12,14 @@
 * [Practical Improvements to the PID Controller](practical-improvements-to-pid.md)
 * [Dealing with Angles](controlling-heading.md)
 * [Feedforward Control](feedforward-control.md)
-* [Motion Profiling](motion-profiling.md)
 * [Extra Resources](extra-resources.md)
+
+## Advanced
+
+* [The Kalman Filter](advanced/the-kalman-filter.md)
+
+## Homeostasis Library <a id="homeostasis-by-thermal-equilibrium"></a>
+
+* [What is Homeostasis?](homeostasis-by-thermal-equilibrium/what-is-homeostasis.md)
+* [Installation](homeostasis-by-thermal-equilibrium/installation.md)
 
