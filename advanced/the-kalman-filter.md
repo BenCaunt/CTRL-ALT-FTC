@@ -96,11 +96,11 @@ while (true) {
     
     p = p_previous + Q;
     
-    K = P/(P + R);
+    K = p/(p + R);
     
     z = getSecondSensor(); // you are probably already using a sensor for u, 
                            // use another sensor for z
-    x = x + K(z - x);
+    x = x + K * (z - x);
     
     p = (1-K) * p;
     
