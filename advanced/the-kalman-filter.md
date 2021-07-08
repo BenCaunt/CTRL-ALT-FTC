@@ -89,6 +89,7 @@ double x_previous = x;
 double p_previous = p;
 double u = 0;
 double z = 0; 
+
 while (true) {
 
     u = getInput(); // however you want to do this (IE, taking delta of encoder)
