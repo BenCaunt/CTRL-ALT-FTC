@@ -48,7 +48,7 @@ These equations, when initially presented, will likely leave one with even more 
 
 For A's value, we first need to understand a bit about state-space representation, which is the method of modeling used by modern control theory.
 
-![Explaination of state space and the our derivation of A.  ](../.gitbook/assets/state-space-explaination.png)
+![Explaination for A&apos;s value](../.gitbook/assets/fix-typo-aaaa.png)
 
 Now we have our A 'Matrix' which is simply a scalar value of 1.  In addition to this we now understand how the initial prediction of our systems state was derived.  
 
