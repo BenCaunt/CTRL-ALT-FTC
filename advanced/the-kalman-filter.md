@@ -14,7 +14,9 @@ A Kalman filter at the highest level is an algorithm that optimally estimates an
 
 ## How does the Kalman Filter work? 
 
-One common theme in control theory is feedback; feedback can also be used in the processing of sensor measurements and how the Kalman filter works. First, the Kalman filter makes an initial estimate with the following equation:
+One common theme in control theory is feedback; feedback can also be used in the processing of sensor measurements and with feedback is where the Kalman filter gets it's magic. 
+
+First, the Kalman filter makes an initial estimate using the following equation:
 
 ![Estimate the current state using the model ](../.gitbook/assets/kalman-filter-state-projection%20%281%29.png)
 
