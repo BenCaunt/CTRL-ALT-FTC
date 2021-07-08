@@ -16,6 +16,8 @@ FTC specific software guides: [https://gm0.org/en/stable/docs/software/index.htm
 
 Controls Engineering in the FIRST Robotics Competition \(Graduate-level control theory for high schoolers\): [https://file.tavsys.net/control/controls-engineering-in-frc.pdf](https://file.tavsys.net/control/controls-engineering-in-frc.pdf)
 
+Stability of the Kalman Filter for Output Error Systems: [https://hal.inria.fr/hal-01232177/document\#:~:text=The%20stability%20of%20the%20Kalman,process%20noise%20is%20totally%20absent.](https://hal.inria.fr/hal-01232177/document#:~:text=The%20stability%20of%20the%20Kalman,process%20noise%20is%20totally%20absent.)
+
 For direct help you can direct message: Ja\#2158 \(Ben\) or ckate \#2907 \(Kate\) on discord!
 
 or email us at: thermalequilibriumftc@gmail.com
