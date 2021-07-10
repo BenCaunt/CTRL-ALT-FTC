@@ -9,7 +9,7 @@
   * [The Integral Term](the-pid-controller/the-integral-term.md)
   * [The Derivative Term](the-pid-controller/the-derivative-term.md)
 * [Tuning Methods of a PID Controller](tuning-methods-of-a-pid-controller.md)
-* [Practical Improvements to the PID Controller](practical-improvements-to-pid.md)
+* [Improvements to the PID Controller](practical-improvements-to-pid.md)
 * [Dealing with Angles](controlling-heading.md)
 * [Feedforward Control](feedforward-control.md)
 * [Extra Resources](extra-resources.md)

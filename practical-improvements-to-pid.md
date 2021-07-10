@@ -4,7 +4,7 @@ description: >-
   windup, low-pass filter derivative, and gain scheduling.
 ---
 
-# Practical Improvements to the PID Controller
+# Improvements to the PID Controller
 
 ## Issues with the Traditional PID Controller
 
