@@ -28,9 +28,9 @@ This is a very basic estimation of the sensor state which can then be improved w
 
 This process of projecting the state forward using the first equation and then augmenting that estimation using a sensor estimate and feedback will repeat continuously. If the system is observable and the Kalman gain is stable, the filter will theoretically converge on the system's actual state.
 
-_**"For a Kalman filter you are not so much interested in the "stability" of x^ \(full state estimation\), but in the error between x \(the actual state\) and x^. Because if this error goes to zero, then x^ will become equal to x, which is what we want."**_ 
+_**"For a Kalman filter you are not so much interested in the "stability" of**_  **x̂** _**\(full state estimation\), but in the error between x \(the actual state\) and**_ **x̂**_**. Because if this error goes to zero, then**_ **x̂** _**will become equal to x, which is what we want."**_ 
 
-_In this quote, **x^** refers to the state estimate and **x** refers to the true state._ 
+_In this quote,_ **x̂** _****refers to the state estimate and **x** refers to the true state._ 
 
 source: Kwin van der Veen \([https://math.stackexchange.com/users/76466/kwin-van-der-veen](https://math.stackexchange.com/users/76466/kwin-van-der-veen)\), Show stability of Kalman filter, URL \(version: 2017-04-13\): [https://math.stackexchange.com/q/2057891](https://math.stackexchange.com/q/2057891)
 
