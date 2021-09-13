@@ -17,6 +17,7 @@
 ## Advanced
 
 * [The Kalman Filter](advanced/the-kalman-filter.md)
+* [Matlab in FTC](advanced/matlab-in-ftc.md)
 
 ## Homeostasis Library <a id="homeostasis-by-thermal-equilibrium"></a>
 
