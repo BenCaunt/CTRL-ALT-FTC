@@ -38,7 +38,7 @@ public double calculateStateFeedback(double targetPosition, double targetVelocit
 } 
 ```
 
-This type of controller will have much better trajectory tracking performance than pid as in addition to driving our robot to the target position, it is able to drive our robot at target velocity.  In combination with motion profiling this is an incredibly powerful tool. 
+This type of controller will have much better trajectory tracking performance than pid as in addition to driving our robot to the target position, it is able to drive our robot at target velocity.  In combination with motion profiling this is an incredibly powerful tool.  You can even extend this method by adding additional states.  Combined with feedforward control you will have an incredibly robust controller. 
 
 
 
