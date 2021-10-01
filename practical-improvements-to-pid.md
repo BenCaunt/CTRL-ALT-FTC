@@ -17,6 +17,7 @@ Each one of these methods has a relatively basic solution which we will analyze 
 * Integral windup
   * Integral sum cap
   * Integral sum reset
+  * Stop integral sum when the output is being saturated. 
 * Derivative noise amplification
   * Filter derivative input
 
@@ -61,7 +62,7 @@ if (reference != lastReference) {
 
 For many systems such as a drivetrain, doing this allows you to more easily change directions without waiting for the integral sum to change directions.  
 
-### Derivative Noise Amplification and Mitigation Methods
+### Derivative Noise Mitigation Methods
 
 If we recall from the chapter on the derivative term of a PID controller we know that increasing the gain  of our derivative term can potentially result in unstable oscillations.  This is because the nature of the derivative when it attempts to slow down the rate of change of the system can create an unstable feedback loop resulting in oscillations that increase in amplitude.  The same thing can happen when our source of data is unreliable and noisy.  While we cannot perfectly fix noisy data without a perfect model we can use a series of filters to remove much of the high frequency noise that appears in our measuremets.  One such method is known as the **low pass filter**.  
   
