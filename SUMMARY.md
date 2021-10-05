@@ -20,6 +20,10 @@
 * [The Kalman Filter](advanced/the-kalman-filter.md)
 * [Matlab in FTC](advanced/matlab-in-ftc.md)
 
+## Practical Examples
+
+* [Drivetrain Control](practical-examples/drivetrain-control.md)
+
 ## Homeostasis Library <a id="homeostasis-by-thermal-equilibrium"></a>
 
 * [What is Homeostasis?](homeostasis-by-thermal-equilibrium/what-is-homeostasis.md)
