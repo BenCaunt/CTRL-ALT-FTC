@@ -2,7 +2,7 @@
 description: What are control systems and why do we use them
 ---
 
-# Introduction to Controls
+# Why Control Theory is a Must Have
 
 ## Why Controls?
 

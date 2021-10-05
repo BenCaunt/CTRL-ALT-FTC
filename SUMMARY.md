@@ -1,7 +1,7 @@
 # Table of contents
 
 * [CTRL ALT FTC](README.md)
-* [Introduction to Controls](introduction-to-controls.md)
+* [Why Control Theory is a Must Have](introduction-to-controls.md)
 * [Introduction to Open Loop Control](introduction-to-open-loop-control.md)
 * [Introduction to Closed Loop Control](introduction-to-closed-loop-control.md)
 * [The PID Controller](the-pid-controller/README.md)
