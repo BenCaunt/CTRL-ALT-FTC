@@ -82,7 +82,7 @@ while (loopIsActive) {
     // the second is the systems state. 
     x = xControl.calculate(xTarget, xRobotPosition); 
     y = yControl.calculate(yTarget, yRobotPosition);
-    t = xControl.calculate(thetaTarget, thetaRobotPosition);
+    t = thetaControl.calculate(thetaTarget, thetaRobotPosition);
     double x_rotated = x * Math.cos(angle) - y * Math.sin(angle);
     double y_rotated = x * Math.sin(angle) + y * Math.cos(angle);
     
