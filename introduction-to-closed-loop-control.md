@@ -8,7 +8,7 @@ description: Introduction to feedback control in FTC
 
 Closed-Loop Control means that we are **modifying our input to our system based on its output.**
 
-I believe an excellent way to think about closed-loop control is driving a car driving down a highway. In this example, your steering wheel doesn't need to be commanded, and there are no other cars on the road that you need to worry about avoiding. The only thing that you must do is keep as close to the speed limit \(reference\) as possible. Let's say you look at your car's speedometer and notice you are just below the speed limit. As a result of this observation, you press on the accelerator, and your car speeds up towards the **reference**. As you get closer to the reference, you back off of the accelerator more and more until your vehicle is at the reference. This concept is the general premise of Closed-Loop Control. 
+I believe an excellent way to think about closed-loop control is driving a car driving down a highway. In this example, your steering wheel doesn't need to be commanded, and there are no other cars on the road that you need to worry about avoiding. The only thing that you must do is keep as close to the speed limit (reference) as possible. Let's say you look at your car's speedometer and notice you are just below the speed limit. As a result of this observation, you press on the accelerator, and your car speeds up towards the **reference**. As you get closer to the reference, you back off of the accelerator more and more until your vehicle is at the reference. This concept is the general premise of Closed-Loop Control. 
 
 {% hint style="info" %}
 The **reference** is a term that where we want our system to be. A reference could be the target speed of a motor, the target angle that a drivetrain is facing, or any other state that we would like to control. This reference is the value that our closed-loop system is trying to converge our system's state on. 
@@ -93,11 +93,11 @@ The Bang Bang controller is a type of Closed Loop controller that abruptly switc
 
 The second controller may look a little less familiar. This controller is the proportional feedback controller. This type of controller generates some output directly proportional to the **error** between the reference and the current state. The result of this controller is that the output is much smoother and much more predictable. The proportional feedback controller structure is almost always more desirable than that of a bang-bang controller due to the proportional controller's continuous and linear nature. We can also add onto this controller and create more complex items such as the PID controller. 
 
-![Simulink Model of a Bang Bang Controller](.gitbook/assets/bang-bang.png)
+![Simulink Model of a Bang Bang Controller](<.gitbook/assets/bang bang.png>)
 
-![Simulink Model of a Proportional Controller](.gitbook/assets/proportional-controller.png)
+![Simulink Model of a Proportional Controller](<.gitbook/assets/proportional controller.png>)
 
-The consensus is that the proportional controller is superior to the bang-bang controller. This, however, is still not recommended, and it is often beneficial to move towards a variant of the proportional controller known as the Proportional Integral Derivative \(PID\) controller.
+The consensus is that the proportional controller is superior to the bang-bang controller. This, however, is still not recommended, and it is often beneficial to move towards a variant of the proportional controller known as the Proportional Integral Derivative (PID) controller.
 
 ‌ In the next chapter, we will begin to learn about this new closed-loop controller.
 
@@ -109,9 +109,7 @@ The consensus is that the proportional controller is superior to the bang-bang c
     * Try both!
   * Which controller performs better, the bang bang controller or the proportional controller.
     * Do the results suprise you? 
-    * Do the results contradict this article? \(stay tuned for the next chapter for further advancements\).
-
-
+    * Do the results contradict this article? (stay tuned for the next chapter for further advancements).
 
 
 

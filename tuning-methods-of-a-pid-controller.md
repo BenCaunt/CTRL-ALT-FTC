@@ -19,23 +19,23 @@ There are a few different ways to approach manually tuning a PID controller, but
 
 This method above works well for many systems but many people have better luck with other methods.  
 
-Manning PID controllers manually require a little bit of experience, but this knowledge is rudimentary to learn.  
-  
+Manning PID controllers manually require a little bit of experience, but this knowledge is rudimentary to learn.\
+\
  This is a table from the Wikipedia article on PID controllers that characterize how an increase in each term affects the system to get you started.
 
 #### Effect of each term on the controllers performance
 
-| Parameter | Rise time | Overshoot | Settling time  | Steady-state error | Stability |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| Kp | Decrease | Increase | Small change | Decrease | Degrade |
-| Ki | Decrease | Increase | Increase | Eliminate | Degrade |
-| Kd | Little change | Decrease | Decrease | Theoretically no change | Improve if Kd is already low |
+| Parameter | Rise time     | Overshoot | Settling time  | Steady-state error      | Stability                    |
+| --------- | ------------- | --------- | -------------- | ----------------------- | ---------------------------- |
+| Kp        | Decrease      | Increase  | Small change   | Decrease                | Degrade                      |
+| Ki        | Decrease      | Increase  | Increase       | Eliminate               | Degrade                      |
+| Kd        | Little change | Decrease  | Decrease       | Theoretically no change | Improve if Kd is already low |
 
-Table information sourced from: [https://en.wikipedia.org/wiki/PID\_controller](https://en.wikipedia.org/wiki/PID_controller)
+Table information sourced from: [https://en.wikipedia.org/wiki/PID_controller](https://en.wikipedia.org/wiki/PID_controller)
 
 #### Ziegler–Nichols Tuning
 
-Ziegler Nichols tuning is a method that is similar to manual tuning in the fact that it requires physical access to the System. Still, it is much more rigorous and, in many situations, can provide superior results. This method requires that you visualize your error over time in some way. There are a few ways to do this. One is to use the [FTC dashboard](https://acmerobotics.github.io/ftc-dashboard/), and another is to use System.out.println\(\) and then copy and paste the data from logcat into excel \(suboptimal, I'm aware, but it's a quick fix to get something working\). 
+Ziegler Nichols tuning is a method that is similar to manual tuning in the fact that it requires physical access to the System. Still, it is much more rigorous and, in many situations, can provide superior results. This method requires that you visualize your error over time in some way. There are a few ways to do this. One is to use the [FTC dashboard](https://acmerobotics.github.io/ftc-dashboard/), and another is to use System.out.println() and then copy and paste the data from logcat into excel (suboptimal, I'm aware, but it's a quick fix to get something working). 
 
 The Ziegler Nichols procedure works as the following:
 
@@ -45,18 +45,17 @@ The Ziegler Nichols procedure works as the following:
 3. The oscillation period or the time from peak to peak of the oscillation is a value known as **Tu**.
 4. We then use the following lookup table to derive our PID gains. 
 
-| Desired Controller | Kp | Ki | Kd |
-| :--- | :--- | :--- | :--- |
-| P Only | 0.5Ku | N/A | N/A |
-| PI Only | 0.45Ku | 0.54Ku/Tu | N/A |
-| PD Only | 0.8Ku | N/A | 0.1KuTu |
-| PID | 0.6Ku | 1.2Ku/Tu | 0.075KuTu |
-| Some overshoot | 0.33Ku | 0.66Ku/Tu | 0.11KuTu |
-| No overshoot | 0.2Ku | 0.40Ku/Tu | 0.066KuTu |
+| Desired Controller | Kp     | Ki        | Kd        |
+| ------------------ | ------ | --------- | --------- |
+| P Only             | 0.5Ku  | N/A       | N/A       |
+| PI Only            | 0.45Ku | 0.54Ku/Tu | N/A       |
+| PD Only            | 0.8Ku  | N/A       | 0.1KuTu   |
+| PID                | 0.6Ku  | 1.2Ku/Tu  | 0.075KuTu |
+| Some overshoot     | 0.33Ku | 0.66Ku/Tu | 0.11KuTu  |
+| No overshoot       | 0.2Ku  | 0.40Ku/Tu | 0.066KuTu |
 
-Table sourced from: [https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols\_method](https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method)
+Table sourced from: [https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method](https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols_method)
 
  After following the procedure above, you should theoretically have well-tuned gains that perform as expected depending on the given tuning requirements you chose. However, many do claim that often Ziegler Nichols tuning requires a little bit of fine-tuning to get perfect.
 
 #### Many additional methods are currently being researched and will come soon. 
-
