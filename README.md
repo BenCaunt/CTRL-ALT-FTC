@@ -8,7 +8,7 @@ description: >-
 
 
 
-![](<.gitbook/assets/Ctrl alt ftc high res.PNG>)
+![](.gitbook/assets/ctrl-alt-ftc-high-res.png)
 
 ## What and Who is this Guide For?
 

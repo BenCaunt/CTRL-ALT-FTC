@@ -12,7 +12,7 @@ The difference comes to what we put between the system we are controlling and ou
 
 Our PID Controller consists of three main parts. The Proportional (P), the Integral (I), and the Derivative (D).
 
-![Simulink Model of a PID Controller](<../.gitbook/assets/Screen Shot 2021-04-10 at 10.54.39 PM.png>)
+![Simulink Model of a PID Controller](../.gitbook/assets/screen-shot-2021-04-10-at-10.54.39-pm.png)
 
 
 

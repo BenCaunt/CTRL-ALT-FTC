@@ -27,7 +27,7 @@ Forward Euler Integration works by the following sequence:
 * Add the product to a running total containing the integral sum.
 * repeat until we are out of data (or keep repeating forever, whatever is necessary).
 
-![Forward Euler Integration ](<../.gitbook/assets/Forward euler integration example .png>)
+![Forward Euler Integration ](../.gitbook/assets/forward-euler-integration-example-.png)
 
 {% hint style="success" %}
 For you calculus inclinded individuals, Forward Euler Integration may already be familiar to you as riemann sum.
@@ -49,9 +49,9 @@ This integral sum is then added to the output of our controller which is then se
 
 Integration is useful because it forces our error to be pushed toward 0 over time.  This allows our system to be much more robust against disturbances such as gravity, friction, and backlash.
 
-![Our PID controller with Kp = 2, Ki = 0.3](<../.gitbook/assets/Kp = 2, Ki = 0.3 model.png>)
+![Our PID controller with Kp = 2, Ki = 0.3](../.gitbook/assets/kp-2-ki-0.3-model.png)
 
-![System response with Kp = 2, Kd = 0, Ki = 0.3](<../.gitbook/assets/Kp = 2, Ki = 0.3 result.png>)
+![System response with Kp = 2, Kd = 0, Ki = 0.3](../.gitbook/assets/kp-2-ki-0.3-result.png)
 
 As we can see from the graph above, the integrator works to squash our error down to zero over time. This result, however, is still not quite perfect as we still have a large oscillation around our reference. The next chapter will resolve this issue.\
 \

@@ -12,13 +12,13 @@ The proportional term is arguably the essential part of the PID Controller. The 
 
 The recommended way to begin tuning with PID is to set I and D to 0 until you get the desired response from P. This inherently makes sense because the proportional controller contributes to most of the controller's output most of the time.
 
-![PID Controller with only Kp active](<../.gitbook/assets/Screen Shot 2021-04-09 at 12.24.05 PM.png>)
+![PID Controller with only Kp active](../.gitbook/assets/screen-shot-2021-04-09-at-12.24.05-pm.png)
 
 In the model above we have our familiar PID controller but with our integral and our derivative disabled (set to 0).  This means that only our proportional control is active.  With Kp set to 1 this system should act Identically to the proportional controller in the [Introduction to Closed Loop Control ](https://www.ctrlaltftc.com/introduction-to-closed-loop-control)chapter. 
 
 Here we can see the response from this system:
 
-![System response with Kp = 1, Kd = 0, Ki = 0](<../.gitbook/assets/kp = 1 .png>)
+![System response with Kp = 1, Kd = 0, Ki = 0](../.gitbook/assets/kp-1-.png)
 
 {% hint style="info" %}
 The red line is the response of the system over time (such as the encoder position, angle of a potentiometer, IMU angle, etc) and the blue line is our reference signal. The yellow line is the command sent to the device we are attempting to control such as our motor.  
@@ -28,7 +28,7 @@ As we can see from this example, we have a bit of steady-state error. The presen
 
 As we can see the performance of our system is improved. Do notice that we are **saturating** our system slightly. The aforementioned is because our system can only actually go up to **1** power in the FTC SDK. We are using more than this is not possible for our system. This issue is even more evident at higher gains.   
 
-![System response with Kp = 2, Kd = 0, Ki = 0](<../.gitbook/assets/kp =2.png>)
+![System response with Kp = 2, Kd = 0, Ki = 0](../.gitbook/assets/kp-2.png)
 
 We can see here that the steady state error is slightly reduced but is still there.  We will resolve this in the next chapter. 
 

@@ -10,7 +10,7 @@ description: >-
 
 A Kalman filter at the highest level is an algorithm that optimally estimates any given state of a system, given a model of how the system changes over time and knowing a set of sensor measurements. We use a Kalman filter whenever we have doubts about the quality of our sensors, and we require more reliable measurements to control our system with the performance that we desire.
 
-![LR GYRO + Open Odo + Kalman Filter for Angle Estimation](<../.gitbook/assets/Optimal sensor estimation.PNG>)
+![LR GYRO + Open Odo + Kalman Filter for Angle Estimation](../.gitbook/assets/optimal-sensor-estimation.png)
 
 ## How does the Kalman Filter work? 
 
@@ -18,13 +18,13 @@ One common theme in control theory is feedback; feedback can also be used in the
 
 First, the Kalman filter makes an initial estimate using the following equation:
 
-![Estimate the current state using the model ](<../.gitbook/assets/Kalman filter state projection.PNG>)
+![Estimate the current state using the model ](<../.gitbook/assets/kalman-filter-state-projection (1).png>)
 
 Generally, for FTC scale applications, 'U' is simply an estimate of how much the estimate has changed since t-1. Such as the change in angle between the t and t-1.
 
 This is a very basic estimation of the sensor state which can then be improved with feedback: 
 
-![Using the Kalman gain and a sensor measurement, use feedback on the estimate.](<../.gitbook/assets/KALMAN GAIN OP.PNG>)
+![Using the Kalman gain and a sensor measurement, use feedback on the estimate.](../.gitbook/assets/kalman-gain-op.png)
 
 This process of projecting the state forward using the first equation and then augmenting that estimation using a sensor estimate and feedback will repeat continuously. If the system is observable and the Kalman gain is stable, the filter will theoretically converge on the system's actual state.
 
@@ -44,13 +44,13 @@ Previously we stated that 'if the system is observable and the Kalman gain is st
 
 ‌ After some simplification, the equation for the covariance and Kalman gain measurement becomes:
 
-![Equations for calculating Kalman Gain and covariance.](<../.gitbook/assets/kalman gain and covariance calculation.PNG>)
+![Equations for calculating Kalman Gain and covariance.](../.gitbook/assets/kalman-gain-and-covariance-calculation.png)
 
 These equations, when initially presented, will likely leave one with even more questions than they had before. This result is due to the significant amount of apparently unknown variables.
 
 For A's value, we first need to understand a bit about state-space representation, which is the method of modeling used by modern control theory.
 
-![Explaination for A's value](<../.gitbook/assets/fix typo aaaa.PNG>)
+![Explaination for A's value](../.gitbook/assets/fix-typo-aaaa.png)
 
 Now we have our A 'Matrix' which is simply a scalar value of 1.  In addition to this we now understand how the initial prediction of our systems state was derived.  
 
@@ -58,7 +58,7 @@ Next we need to find **H**.
 
 H is what is known as the sensor transition matrix and this matrix tells us which of our systems states are directly observable by a sensor. ** Since we are dealing with a SISO system and we know for a fact that it is an observable state because we have a value for Z in the feedback equation then the value for H **_**must be equal to 1**_**. ** We know this because the real feedback equation actually contains this H matrix multiplied by our systems state!
 
-![Previous Feedback equation but with the H term for clarity.](<../.gitbook/assets/real feedback term.PNG>)
+![Previous Feedback equation but with the H term for clarity.](../.gitbook/assets/real-feedback-term.png)
 
 In a more extensive system, the H matrix would ensure we only perform feedback on the states that we can directly measure from the sensors available. ** It is simply just equal to 1 and can. Therefore, we can largely ignore it. **
 
@@ -68,13 +68,13 @@ Finally, that leaves the model and sensor covariances known as Q and R. These ar
 
 One may have now realized that each of these 'matrices' is just a single scalar value for our applications. The result of this finding means that we can simplify the equations for calculating Kalman Gain and covariance to:
 
-![Much simplified equations for covariance and Kalman Gain ](<../.gitbook/assets/covariance and kalman gain simplified equation derivation.PNG>)
+![Much simplified equations for covariance and Kalman Gain ](../.gitbook/assets/covariance-and-kalman-gain-simplified-equation-derivation.png)
 
 ## Putting it all together
 
 Finally we have independently derived each of the equations we need for our SISO Kalman filter.  Now we can put them together and then we will be able to effectively implement our filter in software.  Taking each simplified part and putting them into a computable procedure will yield: 
 
-![Procedure for our SISO Kalman Filter](<../.gitbook/assets/final kalman filter derivation.PNG>)
+![Procedure for our SISO Kalman Filter](../.gitbook/assets/final-kalman-filter-derivation.png)
 
 We can now relatively trivially implement the Kalman filter in java as:
 

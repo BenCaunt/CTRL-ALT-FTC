@@ -93,9 +93,9 @@ The Bang Bang controller is a type of Closed Loop controller that abruptly switc
 
 The second controller may look a little less familiar. This controller is the proportional feedback controller. This type of controller generates some output directly proportional to the **error** between the reference and the current state. The result of this controller is that the output is much smoother and much more predictable. The proportional feedback controller structure is almost always more desirable than that of a bang-bang controller due to the proportional controller's continuous and linear nature. We can also add onto this controller and create more complex items such as the PID controller. 
 
-![Simulink Model of a Bang Bang Controller](<.gitbook/assets/bang bang.png>)
+![Simulink Model of a Bang Bang Controller](.gitbook/assets/bang-bang.png)
 
-![Simulink Model of a Proportional Controller](<.gitbook/assets/proportional controller.png>)
+![Simulink Model of a Proportional Controller](.gitbook/assets/proportional-controller.png)
 
 The consensus is that the proportional controller is superior to the bang-bang controller. This, however, is still not recommended, and it is often beneficial to move towards a variant of the proportional controller known as the Proportional Integral Derivative (PID) controller.
 

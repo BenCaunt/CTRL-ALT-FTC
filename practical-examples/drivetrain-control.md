@@ -35,7 +35,7 @@ The code above will allow us to very easily move our robot in the coordinate spa
 
 In order to move our robot we need to [rotate](https://en.wikipedia.org/wiki/Rotation_matrix) the x and y commands by the robots angle:
 
-![Visual representation of rotating the robot relative vector into the field relative space](<../.gitbook/assets/rotated mecanum controller .png>)
+![Visual representation of rotating the robot relative vector into the field relative space](../.gitbook/assets/rotated-mecanum-controller-.png)
 
 To perform this rotation we can take our x command, y command, and the angle of our robot and use the rotation equation to solve for the rotated commands
 

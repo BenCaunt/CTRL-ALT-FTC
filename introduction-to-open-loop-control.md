@@ -36,7 +36,7 @@ intakeMotor.setPower(1);
 These examples and nearly all further examples assume that you have correctly set up pre-requisite code such as initializing motors. If this is not satisfied, I would recommend setting this up before proceeding.
 {% endhint %}
 
-![Simulink Diagram of an Open Loop Motor controller](<.gitbook/assets/Screen Shot 2021-04-08 at 7.20.35 PM.png>)
+![Simulink Diagram of an Open Loop Motor controller](.gitbook/assets/screen-shot-2021-04-08-at-7.20.35-pm.png)
 
 As you can see, open loop control is an incredibly simple way to get your robot performing actions.  This method does unforunately have a few critical downfalls for certain systems. 
 
