@@ -15,14 +15,15 @@
 * [Full State feedback](full-state-feedback.md)
 * [Extra Resources](extra-resources.md)
 
+## Practical Examples
+
+* [FTC Motor Control](practical-examples/ftc-motor-control.md)
+* [Drivetrain Control](practical-examples/drivetrain-control.md)
+
 ## Advanced
 
 * [The Kalman Filter](advanced/the-kalman-filter.md)
 * [Matlab in FTC](advanced/matlab-in-ftc.md)
-
-## Practical Examples
-
-* [Drivetrain Control](practical-examples/drivetrain-control.md)
 
 ## Homeostasis Library <a href="homeostasis-by-thermal-equilibrium" id="homeostasis-by-thermal-equilibrium"></a>
 
