@@ -14,6 +14,7 @@
 * [Feedforward Control](feedforward-control.md)
 * [Full State feedback](full-state-feedback.md)
 * [Extra Resources](extra-resources.md)
+* [Video Tutorials](video-tutorials.md)
 
 ## Practical Examples
 
