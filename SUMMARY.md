@@ -24,8 +24,9 @@
 ## Advanced
 
 * [The Kalman Filter](advanced/the-kalman-filter.md)
+* [Gain Scheduling](advanced/gain-scheduling.md)
 
-## Homeostasis Library <a href="homeostasis-by-thermal-equilibrium" id="homeostasis-by-thermal-equilibrium"></a>
+## Homeostasis Library <a href="#homeostasis-by-thermal-equilibrium" id="homeostasis-by-thermal-equilibrium"></a>
 
 * [What is Homeostasis?](homeostasis-by-thermal-equilibrium/what-is-homeostasis.md)
 * [Installation](homeostasis-by-thermal-equilibrium/installation.md)
