@@ -16,6 +16,6 @@ This article is an introductory guide to the beautiful world of Control Theory f
 
 ‌ This guide assumes that you have experience with the SDK. While this does make it slightly tricky for absolute beginners to follow, it also allows the knowledge to be applicable outside of First Tech Challenge.
 
-_**Please note, all of the code examples are pseudocode of how you would go about a java implementation, understand that there may be a little more work to do than what is shown in the document as these extra details would in many cases take away from the learning experience. **_
+_**Please note, all of the code examples are pseudocode of how you would go about a java implementation, understand that there may be a little more work to do than what is shown in the document as these extra details would in many cases take away from the learning experience.**_&#x20;
 
 Any and all feedback is appreciated and can be quickly left [here](https://forms.gle/yXAqtexX2vMJzSVp9).  If you would like to contribute information to CTRL ALT FTC you can access the [github ](https://github.com/BenCaunt/CTRL-ALT-FTC)and make a pull request.

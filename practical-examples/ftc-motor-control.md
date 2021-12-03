@@ -7,6 +7,10 @@ description: >-
 
 # FTC Motor Control
 
+{% hint style="info" %}
+The Goal of this section is to provide an alternative to the built in RUN TO POSITION mode in the FTC Control System.  We advise teams to use their own, external PID rather than the in built PID because it runs at a faster refresh rate and thus will have much greater stability than the inbuilt controller.  In addition, an external controller allows the flexbility to use one or more custom feedforward controls to further improve the performance of your system. &#x20;
+{% endhint %}
+
 ## Setting up your development enviornment. &#x20;
 
 Before we start we are going to assume a you have an editor such as Android Studio setup to modify the SDK and that your motors hardware map is completeted.  If not, please check out this [guide](https://gm0.org/en/latest/docs/software/using-android-studio.html) before proceeding. We will also assume for now that you have a basic opmode setup.
@@ -40,9 +44,9 @@ public class tutorial extends LinearOpMode {
 }
 ```
 
-Above there are a few things happening, for start, on line 3 we are creating an object that is of type DcMotorEx, this is an extended version of the traditional DcMotor class that adds functionality such as measuring the velocity of the motor.  On line **8**, once the user presses init we initialize the motor to the given name that you defined earlier in the hardware map.  If you haven't done this yet you should probably stop and get this out of the way now.  Next on line **12 **we** **are setting the motor to use braking,  this allows our motor to decelerate much faster the alternative float mode. &#x20;
+Above there are a few things happening, for start, on line 3 we are creating an object that is of type DcMotorEx, this is an extended version of the traditional DcMotor class that adds functionality such as measuring the velocity of the motor.  On line **8**, once the user presses init we initialize the motor to the given name that you defined earlier in the hardware map.  If you haven't done this yet you should probably stop and get this out of the way now.  Next on line **12** we **** are setting the motor to use braking,  this allows our motor to decelerate much faster the alternative float mode. &#x20;
 
-On line **14** we are doing something that looks a little bit off but it is what we want.  **RUN WITHOUT **ENCODERS does **NOT** disable the encoder from doing things such as position or velocity measurement but instead lets us just assign a raw motor power to our motor.  The alternative mode, RUN USING ENCODERS simply runs the motor at a speed proportional to its maximum speed, for example setting a power of 0.5 would run the motor at exactly 50% of its speed.  While this may sound great at first, this internal velocity control runs at a slower frequency and will often have less desirable results than using our own custom, external controller.  For this external controller to work properly we should be using RUN WITHOUT ENCODER.
+On line **14** we are doing something that looks a little bit off but it is what we want.  **RUN WITHOUT** ENCODERS does **NOT** disable the encoder from doing things such as position or velocity measurement but instead lets us just assign a raw motor power to our motor.  The alternative mode, RUN USING ENCODERS simply runs the motor at a speed proportional to its maximum speed, for example setting a power of 0.5 would run the motor at exactly 50% of its speed.  While this may sound great at first, this internal velocity control runs at a slower frequency and will often have less desirable results than using our own custom, external controller.  For this external controller to work properly we should be using RUN WITHOUT ENCODER.
 
 {% hint style="danger" %}
 If you glanced over that previous paragraph **dont**.  Read it again, I promise it's important.&#x20;
@@ -175,4 +179,4 @@ There are a few places we can go to now to improve this
 
 
 
-** **
+&#x20;****&#x20;
