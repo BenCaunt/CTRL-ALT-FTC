@@ -117,6 +117,10 @@ Finally, you have now implemented one of the most important filters in modern co
 If one desires, they can move the steps to calculate the kalman gain / covariance operations into a 100+ iteration for loop.  This allows the user to precompute the kalman gain.  This will lead to your state estimate converging faster. &#x20;
 {% endhint %}
 
+### Implementation Example
+
+Here you can find a jupyter notebook for a kalman filter that fuses a motion profile and velocity sensor: [https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb](https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb)
+
 ## Limitations of our work
 
 For simplicity sake we made the assumption that the majority of systems we will be dealing with in FTC are single input, single output systems.  Unfortunately this is not guaranteed and you may have to end up with a more complicated filter where you must use matrices instead of scalar values.  For that you will need to use a library such as [EJML ](http://ejml.org/wiki/index.php?title=Main\_Page)and remove lots of the simplifications that we made.&#x20;
