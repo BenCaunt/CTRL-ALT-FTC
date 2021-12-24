@@ -103,7 +103,7 @@ while (true) {
                            // use another sensor for z
     x = x + K * (z - x);
     
-    p = 1 - K * p;
+    p = (1 - K) * p;
     
     x_previous = x;
     p_previous = p;
@@ -112,6 +112,10 @@ while (true) {
 ```
 
 Finally, you have now implemented one of the most important filters in modern control theory. &#x20;
+
+{% hint style="success" %}
+If one desires, they can move the steps to calculate the kalman gain / covariance operations into a 100+ iteration for loop.  This allows the user to precompute the kalman gain.  This will lead to your state estimate converging faster. &#x20;
+{% endhint %}
 
 ## Limitations of our work
 
