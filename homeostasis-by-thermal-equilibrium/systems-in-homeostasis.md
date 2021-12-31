@@ -16,7 +16,7 @@ BasicSystem(Estimator estimator, FeedbackController feedbackController,
 ```
 
 {% hint style="success" %}
-If you wish to not use any of these features that is okay! Just pass in The "No" or "Raw" versions of each interface!&#x20;
+If you wish to not use any of these features that is okay! Just pass in the "No" or "Raw" versions of each interface!&#x20;
 {% endhint %}
 
 ### PositionVelocitySystem
