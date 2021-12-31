@@ -10,11 +10,11 @@ We identified that, for the most part, one could very elegantly abstract most co
 
 Currently homestasis provides the following features:
 
-* Implementations of many controllers
-  * PID Control
-  * Full State Feedback
-  * Bang Bang Control
-  * Basic, Gravity, and Arm Feedforward
+* [Implementations of many controllers](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers)
+  * [PID Control](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers#pidex)
+  * [Full State Feedback](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers#full-state-feedback-control)
+  * [Bang Bang Control](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers#bang-bang-control)
+  * [Basic](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers#basicfeedforward), [Gravity, and Arm Feedforward](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers#feedforwardex)
 * Estimation algorithms to improve sensor readings:
   * Low Pass Filter
   * A custom Least Squares Regression + Kalman Filter algorithm
