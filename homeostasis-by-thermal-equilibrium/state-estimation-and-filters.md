@@ -55,3 +55,23 @@ The low pass filter removes high frequency signals from your measurements.  Whil
 {% hint style="info" %}
 For each of these filters, there also exists an "Estimator", each estimator is basically just a wrapper around each of these filters that uses a double supplier for more convenient use in 'systems'.&#x20;
 {% endhint %}
+
+### Estimators
+
+```java
+double Q = 0.3;
+double R = 3;
+int N = 3;
+DoubleSupplier sensor = new DoubleSupplier() {
+	@Override
+	public double getAsDouble() {
+		return readNoisySensor();
+	}
+};
+Estimator estimator = new KalmanEstimator(sensor,Q,R,N);
+while (true) {
+	double estimate = estimator.update(); // look! no arguments!
+}
+```
+
+Estimators with their usage of DoubleSuppliers allow the passing of sensor values into the filter to be much more seemless.&#x20;
