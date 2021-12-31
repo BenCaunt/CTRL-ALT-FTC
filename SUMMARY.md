@@ -33,3 +33,4 @@
 * [Installation](homeostasis-by-thermal-equilibrium/installation.md)
 * [Included Controllers](homeostasis-by-thermal-equilibrium/included-controllers.md)
 * [State Estimation and Filters](homeostasis-by-thermal-equilibrium/state-estimation-and-filters.md)
+* [Systems in Homeostasis](homeostasis-by-thermal-equilibrium/systems-in-homeostasis.md)
