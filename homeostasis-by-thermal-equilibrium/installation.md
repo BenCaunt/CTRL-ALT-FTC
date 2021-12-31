@@ -10,7 +10,7 @@ Navigate to `build.dependencies.gradle` and find `repositories`.&#x20;
 
 In repositories put the maven link to jitpack.io
 
-```
+```groovy
 repositories {
     ... // other repositories that are already there
     maven { url 'https://jitpack.io' }
@@ -20,7 +20,7 @@ repositories {
 
 Then add the dependency:
 
-```
+```groovy
 implementation 'com.github.Thermal-Equilibrium:homeostasis-FTC:1.0.5'
 ```
 
