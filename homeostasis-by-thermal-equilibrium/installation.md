@@ -21,7 +21,7 @@ repositories {
 Then add the dependency:
 
 ```
-implementation 'com.github.Thermal-Equilibrium:homeostasis-FTC:1.0.1'
+implementation 'com.github.Thermal-Equilibrium:homeostasis-FTC:1.0.5'
 ```
 
 Now resync your gradle and Homeostasis should be installed!
