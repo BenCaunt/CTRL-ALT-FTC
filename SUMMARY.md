@@ -32,3 +32,4 @@
 * [What is Homeostasis?](homeostasis-by-thermal-equilibrium/what-is-homeostasis.md)
 * [Installation](homeostasis-by-thermal-equilibrium/installation.md)
 * [Included Controllers](homeostasis-by-thermal-equilibrium/included-controllers.md)
+* [State Estimation and Filters](homeostasis-by-thermal-equilibrium/state-estimation-and-filters.md)
