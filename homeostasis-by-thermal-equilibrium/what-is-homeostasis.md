@@ -13,6 +13,7 @@ Currently homestasis provides the following features:
 * Implementations of many controllers
   * PID Control
   * Full State Feedback
+  * Bang Bang Control
   * Basic, Gravity, and Arm Feedforward
 * Estimation algorithms to improve sensor readings:
   * Low Pass Filter
