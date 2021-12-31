@@ -16,7 +16,7 @@ Currently homestasis provides the following features:
   * [Bang Bang Control](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers#bang-bang-control)
   * [Basic](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers#basicfeedforward), [Gravity, and Arm Feedforward](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/included-controllers#feedforwardex)
 * Estimation algorithms to improve sensor readings:
-  * Low Pass Filter
+  * [Low Pass Filter](https://www.ctrlaltftc.com/homeostasis-by-thermal-equilibrium/state-estimation-and-filters#low-pass-filter)
   * A custom Least Squares Regression + Kalman Filter algorithm
 * &#x20;Many useful utilies such as the WPILib Motion Profile and functions to deal with angles.&#x20;
 * Systems to easily utilize the afformentioned algorithms in a unified way.
