@@ -84,6 +84,26 @@ while (true) {
 
 This controller takes in two parameters, it's output power and a tolerance.  This controller works by making a simple comparison: is it too low or is it too high and then applies either maxOutput or -maxOutput to the system.  If the error is within tolerance (or hysterisis as the parameter is called), then the controller will return 0. This hysterisis prevents the bang bang controller from oscillating forever but has the trade off of introducing some state error.&#x20;
 
+## Dealing with Angles
+
+The previously mentioned linear feedback controllers will fail in certain circumstances such as using them in combination with an IMU to turn the robot.  For this case it is recommended to use the AngleController wrapper to correct this.  This wrapper implements the techniques discussed in the "[Dealing with Angles](https://www.ctrlaltftc.com/controlling-heading)" section of CTRL ALT FTC. &#x20;
+
+Here we can see how to use this wrapper:
+
+```java
+double targetAngle = Math.toRadians(90);
+PIDCoefficients coefficients = new PIDCoefficients(0.5,0,0);
+// any controller that implements "FeedbackController" can be used.
+BasicPID pid = new BasicPID(coefficients);  
+AngleController controller = new AngleController(pid); 
+
+while (true) {
+	double command = controller.calculate(targetAngle, readIMURadians()); 
+}
+```
+
+An important note is that AngleController can be used with nearly controller in homeostasis and even your own! Just make sure that this controller implements the "FeedbackController" interface!&#x20;
+
 ## Feedforward Control
 
 As we have learned from the rest of the website, Feedforward control is an open loop controller, meaning it only takes in the target state and does not require a measurement.  Generally this works very well with velocity control in FTC due to the tendency for velocity measured by encoders to be quite noisy; making closed loop control difficult.&#x20;
