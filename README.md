@@ -14,6 +14,12 @@ description: >-
 Returning visitors,  We are currently looking for ways to adapt in order to best assist the needs of the First Tech Challenge community.  If you have time it would mean the world to us if you took the time out of your day to fill out this form. Any and all feedback is appreciated and can be quickly [left here](https://forms.gle/SjSEG5mSNRPiBNyK7).
 {% endhint %}
 
+### Control System Example
+
+{% embed url="https://photos.app.goo.gl/MGA6pnzYrpotzj1x9" %}
+Autonomous Drivetrain Control Example.&#x20;
+{% endembed %}
+
 ## What and Who is this Guide For?
 
 This article is an introductory guide to the beautiful world of Control Theory for those with a background in FTC programming. This guide is for those who have just learned the basics of programming but are stuck in the grey "middle area" where resources are far below your abilities or just a little above your head. Hopefully, by the end of this guide, you will have a more intuitive understanding of control topics and feel more comfortable with the implementation of advanced controls in the context of First Tech Challenge and other fields as your STEM journey continues.

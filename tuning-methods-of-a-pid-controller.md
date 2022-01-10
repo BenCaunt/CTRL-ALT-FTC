@@ -23,6 +23,10 @@ Manning PID controllers manually require a little bit of experience, but this kn
 \
 &#x20;This is a table from the Wikipedia article on PID controllers that characterize how an increase in each term affects the system to get you started.
 
+### Finding reasonable starting values for Kp
+
+Finding a good value for Kp to begin with can be very helpful.  To do this you must know the maximum output of your system and the units that you are using to measure your system. &#x20;
+
 #### Effect of each term on the controllers performance
 
 | Parameter | Rise time     | Overshoot | Settling time  | Steady-state error      | Stability                    |
@@ -33,21 +37,21 @@ Manning PID controllers manually require a little bit of experience, but this kn
 
 Table information sourced from: [https://en.wikipedia.org/wiki/PID\_controller](https://en.wikipedia.org/wiki/PID\_controller)
 
-{% hint style="danger" %}
-DO NOT USE Ziegler-Nichols Tuning, it WILL BREAK YOUR ROBOT, and even if it doesn't, the gains that it derives are very suboptimal.&#x20;
+{% hint style="info" %}
+Ziegler-Nichols is a method that can yield mixed results, you must be careful not to break your system.&#x20;
 {% endhint %}
 
-#### ~~Ziegler–Nichols Tuning~~
+#### Ziegler–Nichols Tuning
 
-~~Ziegler Nichols tuning is a method that is similar to manual tuning in the fact that it requires physical access to the System. Still, it is much more rigorous and, in many situations, can provide superior results. This method requires that you visualize your error over time in some way. There are a few ways to do this. One is to use the~~ [~~FTC dashboard~~](https://acmerobotics.github.io/ftc-dashboard/)~~, and another is to use System.out.println() and then copy and paste the data from logcat into excel (suboptimal, I'm aware, but it's a quick fix to get something working).~~&#x20;
+Ziegler Nichols tuning is a method that is similar to manual tuning in the fact that it requires physical access to the System. Still, it is much more rigorous and, in many situations, can provide superior results. This method requires that you visualize your error over time in some way. There are a few ways to do this. One is to use the [FTC dashboard](https://acmerobotics.github.io/ftc-dashboard/), and another is to use System.out.println() and then copy and paste the data from logcat into excel (suboptimal, I'm aware, but it's a quick fix to get something working).&#x20;
 
-~~The Ziegler Nichols procedure works as the following:~~
+The Ziegler Nichols procedure works as the following:
 
-1. ~~Start with Kp, Ki, and Kd at 0.~~&#x20;
-2. ~~Increase Kp until the system is in a steady oscillation around the setpoint.~~
-   1. ~~This is known as the critical gain of the system and is denoted as **Ku**.~~
-3. ~~The oscillation period or the time from peak to peak of the oscillation is a value known as **Tu**.~~
-4. ~~We then use the following lookup table to derive our PID gains.~~&#x20;
+1. Start with Kp, Ki, and Kd at 0.&#x20;
+2. Increase Kp until the system is in a steady oscillation around the setpoint.
+   1. This is known as the critical gain of the system and is denoted as **Ku**.
+3. The oscillation period or the time from peak to peak of the oscillation is a value known as **Tu**.
+4. We then use the following lookup table to derive our PID gains.&#x20;
 
 | Desired Controller | Kp     | Ki        | Kd        |
 | ------------------ | ------ | --------- | --------- |
@@ -58,8 +62,8 @@ DO NOT USE Ziegler-Nichols Tuning, it WILL BREAK YOUR ROBOT, and even if it does
 | Some overshoot     | 0.33Ku | 0.66Ku/Tu | 0.11KuTu  |
 | No overshoot       | 0.2Ku  | 0.40Ku/Tu | 0.066KuTu |
 
-~~Table sourced from:~~ [~~https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols\_method~~](https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols\_method)~~~~
+Table sourced from: [https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols\_method](https://en.wikipedia.org/wiki/Ziegler%E2%80%93Nichols\_method)
 
-&#x20;~~After following the procedure above, you should theoretically have well-tuned gains that perform as expected depending on the given tuning requirements you chose. However, many do claim that often Ziegler Nichols tuning requires a little bit of fine-tuning to get perfect.~~
+&#x20;After following the procedure above, you should theoretically have well-tuned gains that perform as expected depending on the given tuning requirements you chose. However, many do claim that often Ziegler Nichols tuning requires a little bit of fine-tuning to get perfect.
 
-#### Many additional methods are currently being researched and will come soon.&#x20;
+####
