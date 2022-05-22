@@ -18,5 +18,5 @@ description: >-
 9. State - where our system currently is,  usually a combination of position / velocity.&#x20;
 10. Roadrunner - A library for First Tech Challenge that incorperates a ton of really powerful control techniques.  It has built in localization (using drive encoders or dead wheels), trajectory generation, and trajectory following algorithms
 11. Path - a set of points that makes up where our robot should be in space.  Usually traversed through by the robots current position.&#x20;
-12. Trajectory - a set of position and velocity points, usually traversed through by the given time.&#x20;
+12. Trajectory - a set of position and velocity points, usually indexed by the given time.&#x20;
 13. State machine - a way to code your robots that emulates asynchronous behavior but without the side effects.&#x20;
