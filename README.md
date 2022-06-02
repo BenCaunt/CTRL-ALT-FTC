@@ -1,14 +1,12 @@
 ---
 description: >-
-  FTC Team #19376 Thermal Equilibrium presents the most comprehensive Control
-  Theory guide aimed towards First Tech Challenge teams.
+  FTC Team #20434 Binding Energy presents the most comprehensive Control Theory
+  guide aimed towards First Tech Challenge teams.
 ---
 
 # CTRL ALT FTC
 
-
-
-![](.gitbook/assets/ctrl-alt-ftc-high-res.png)
+![](<.gitbook/assets/CTRL ALT FTC NEW COLOR .png>)
 
 {% hint style="success" %}
 Returning visitors,  We are currently looking for ways to adapt in order to best assist the needs of the First Tech Challenge community.  If you have time it would mean the world to us if you took the time out of your day to fill out this form. Any and all feedback is appreciated and can be quickly [left here](https://forms.gle/SjSEG5mSNRPiBNyK7).
