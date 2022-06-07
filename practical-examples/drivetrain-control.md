@@ -126,14 +126,6 @@ This controller requires feedback on three seperate values
 Remember: The angle to the target point is the angle between the robot and the target x,y position.  The reference angle is the angle we want the robot to be facing whenever it finishes the movement.&#x20;
 {% endhint %}
 
-First we need to figure out the distance to our target position&#x20;
-
-```java
-public static double getDistance(double robotX, double robotY, double referenceX, double referenceY) {
-    return Math.sqrt(Math.pow(robotY-referenceY,2) + Math.pow(robotX-referenceX,2));
-}
-```
-
 Using the following will drive the robot at a power proportional to the distance between the robot position and the target position&#x20;
 
 ```java
@@ -198,7 +190,7 @@ while (loopIsActive) {
     double yError = targetY - robotY; 
     double theta = Math.atan2(yError,xError);
     // 0 is the reference because we want the distance to go to 0 
-    double distance = getDistance(robotX,robotY,tagetX,targetY);
+    double distance = Math.hypot(xError, yError);
     double left_power = f + t;
     double right_power = f - t;
     if (distance < threshold) {
@@ -238,7 +230,7 @@ while (loopIsActive) {
     double yError = targetY - robotY; 
     double theta = Math.atan2(yError,xError);
     // 0 is the reference because we want the distance to go to 0 
-    double distance = getDistance(robotX,robotY,tagetX,targetY);
+    double distance = Math.hypot(xError, yError);
     double left_power = f + t;
     double right_power = f - t;
     if (distance < threshold) {
