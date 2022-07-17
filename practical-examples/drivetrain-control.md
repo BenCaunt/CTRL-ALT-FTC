@@ -78,7 +78,7 @@ thetaControl = new PID();
 while (loopIsActive) {
     // this imaginary pid controller has a control method that uses the 
     // PID controller we defined earlier in a method called calculate
-    // the first argument of calculate is thereference
+    // the first argument of calculate is the reference state. 
     // the second is the systems state. 
     x = xControl.calculate(xTarget, xRobotPosition); 
     y = yControl.calculate(yTarget, yRobotPosition);
