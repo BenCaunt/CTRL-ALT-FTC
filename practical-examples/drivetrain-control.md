@@ -236,11 +236,15 @@ while (loopIsActive) {
     if (distance < threshold) {
          f = 0;
          t = angleController.calculate(targetAngle, robotTheta);      
+    } else {
+        f = distanceController.calculate(0, distance); 
+        t = angleController.calculate(theta, robotTheta);
     }
     // Range.clip is included in the SDK and will clip between two values
     // angleController.error is a demonstrative attribute that gets the error. 
     f *= Math.cos(Range.clip(angleController.error, -PI/2, PI/2));
     
     // set motor power here! 
+    setRobotRelative(f,t); 
 }
 ```
