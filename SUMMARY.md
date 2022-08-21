@@ -12,7 +12,6 @@
 * [Improvements to the PID Controller](practical-improvements-to-pid.md)
 * [Dealing with Angles](controlling-heading.md)
 * [Feedforward Control](feedforward-control.md)
-* [Full State feedback](full-state-feedback.md)
 * [Extra Resources](extra-resources.md)
 * [Video Tutorials](video-tutorials.md)
 * [Glossary](glossary.md)
@@ -24,6 +23,7 @@
 
 ## Advanced
 
+* [Full State feedback](advanced/full-state-feedback.md)
 * [The Kalman Filter](advanced/the-kalman-filter.md)
 * [Gain Scheduling](advanced/gain-scheduling.md)
 
