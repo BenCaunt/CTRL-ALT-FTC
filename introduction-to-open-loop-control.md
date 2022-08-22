@@ -38,22 +38,22 @@ These examples and nearly all further examples assume that you have correctly se
 
 ![Simulink Diagram of an Open Loop Motor controller](.gitbook/assets/screen-shot-2021-04-08-at-7.20.35-pm.png)
 
-As you can see, open loop control is an incredibly simple way to get your robot performing actions.  This method does unforunately have a few critical downfalls for certain systems. 
+As you can see, open loop control is an incredibly simple way to get your robot performing actions.  This method does unforunately have a few critical downfalls for certain systems.&#x20;
 
 These downfalls consist of the following:
 
 * Cannot reject disturbances
-  * Contact from other robots will not be able to be overcome 
+  * Cannot overcome contact from other robots.  &#x20;
 * Energy ineffecient
-  * Motors must run at maximum power to utilize all of their maximum torque potential 
-* Consistency will vary as battery voltage changes.     
+  * Motors must run at maximum power to utilize all of their maximum torque potential&#x20;
+* Consistency will vary as battery voltage changes.    &#x20;
 
 These downfalls really only matter for certain types of systems.  For example, your intake doesnt really need to reject distrubances from the outside world like your drivetrain does.  This means that choosing Open Loop Control vs Closed Loop Control is decided with personal preference and the _**design requirements**_ of your system.
 
 {% hint style="info" %}
 **Design Requirements**: What your system needs to accomplish.
 
-Does it need to reject distrubances? Does it need to be fast? Can it be slow? How accurate does it need to be? All of these things  are factored into your systems **Design Requirements**. 
+Does it need to reject distrubances? Does it need to be fast? Can it be slow? How accurate does it need to be? All of these things  are factored into your systems **Design Requirements**.&#x20;
 {% endhint %}
 
 #### Practice Exercises
@@ -61,4 +61,4 @@ Does it need to reject distrubances? Does it need to be fast? Can it be slow? Ho
 * Try running the first example on your teams drivetrain
   * How consistent is it?
   * Does the distance vary with the battery voltage?
-* Try to think of how to improve upon this method and implement those to see if it works! 
+* Try to think of how to improve upon this method and implement those to see if it works!&#x20;
