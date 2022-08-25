@@ -8,24 +8,27 @@
   * [The Proportional Term](the-pid-controller/the-proportional-term.md)
   * [The Integral Term](the-pid-controller/the-integral-term.md)
   * [The Derivative Term](the-pid-controller/the-derivative-term.md)
-* [Tuning Methods of a PID Controller](tuning-methods-of-a-pid-controller.md)
-* [Improvements to the PID Controller](practical-improvements-to-pid.md)
-* [Dealing with Angles](controlling-heading.md)
+  * [Tuning Methods of a PID Controller](the-pid-controller/tuning-methods-of-a-pid-controller.md)
+  * [Improvements to the PID Controller](the-pid-controller/practical-improvements-to-pid.md)
 * [Feedforward Control](feedforward-control.md)
-* [Extra Resources](extra-resources.md)
-* [Video Tutorials](video-tutorials.md)
-* [Glossary](glossary.md)
-
-## Practical Examples
-
-* [FTC Motor Control](practical-examples/ftc-motor-control.md)
-* [Drivetrain Control](practical-examples/drivetrain-control.md)
 
 ## Advanced
 
 * [Full State feedback](advanced/full-state-feedback.md)
 * [The Kalman Filter](advanced/the-kalman-filter.md)
 * [Gain Scheduling](advanced/gain-scheduling.md)
+
+## Continued Learning
+
+* [Extra Resources](continued-learning/extra-resources.md)
+* [Video Tutorials](continued-learning/video-tutorials.md)
+* [Glossary](continued-learning/glossary.md)
+
+## Practical Examples
+
+* [FTC Motor Control](practical-examples/ftc-motor-control.md)
+* [Drivetrain Control](practical-examples/drivetrain-control.md)
+* [Dealing with Angles](practical-examples/controlling-heading.md)
 
 ## Homeostasis Library <a href="#homeostasis-by-thermal-equilibrium" id="homeostasis-by-thermal-equilibrium"></a>
 

@@ -68,7 +68,7 @@ If we recall from the chapter on the derivative term of a PID controller we know
 \
 
 
-![Low Pass Filter on Synthetic Data](.gitbook/assets/example-of-low-pass-filter-but-really-cute-and-i-figured-out-how-to-make-the-thing-big.png)
+![Low Pass Filter on Synthetic Data](../.gitbook/assets/example-of-low-pass-filter-but-really-cute-and-i-figured-out-how-to-make-the-thing-big.png)
 
 In the above graph we can see how the low pass filter is able to remove significant amounts of the noise  of our measurement but how does it do this?
 
