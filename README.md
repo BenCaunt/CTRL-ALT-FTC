@@ -14,8 +14,8 @@ Returning visitors,  We are currently looking for ways to adapt in order to best
 
 ### Control System Example
 
-{% embed url="https://photos.app.goo.gl/MGA6pnzYrpotzj1x9" %}
-Autonomous Drivetrain Control Example.&#x20;
+{% embed url="https://youtu.be/Z81BonVrtTw" %}
+Example of feedback control with the Pure Pursuit algorithm
 {% endembed %}
 
 ## What and Who is this Guide For?
