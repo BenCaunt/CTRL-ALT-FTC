@@ -1,7 +1,7 @@
 ---
 description: >-
-  FTC Team #20434 Binding Energy presents the most comprehensive Control Theory
-  guide aimed towards First Tech Challenge teams.
+  The most comprehensive Control Theory guide aimed toward First Tech Challenge
+  teams.
 ---
 
 # CTRL ALT FTC
