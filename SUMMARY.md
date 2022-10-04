@@ -29,6 +29,7 @@
 * [FTC Motor Control](practical-examples/ftc-motor-control.md)
 * [Drivetrain Control](practical-examples/drivetrain-control.md)
 * [Dealing with Angles](practical-examples/controlling-heading.md)
+* [Roadrunner Control Explained](practical-examples/roadrunner-control-explained.md)
 
 ## Homeostasis Library <a href="#homeostasis-by-thermal-equilibrium" id="homeostasis-by-thermal-equilibrium"></a>
 
