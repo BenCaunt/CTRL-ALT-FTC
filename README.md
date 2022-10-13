@@ -1,7 +1,8 @@
 ---
 description: >-
-  The most comprehensive Control Theory guide aimed toward First Tech Challenge
-  teams.
+  Team #22377 The Sigma Corns and Team #19376 Thermal Equilibrium presents CTRL
+  ALT FTC, the most comprehensive Control Theory guide for FIRST Tech Challenge
+  Teams.
 ---
 
 # CTRL ALT FTC
