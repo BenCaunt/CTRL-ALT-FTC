@@ -28,3 +28,11 @@ This article is an introductory guide to the beautiful world of Control Theory f
 _**Please note, all of the code examples are pseudocode of how you would go about a java implementation, understand that there may be a little more work to do than what is shown in the document as these extra details would in many cases take away from the learning experience.**_&#x20;
 
 If you would like to contribute information to CTRL ALT FTC you can access the [github ](https://github.com/BenCaunt/CTRL-ALT-FTC)and make a pull request.
+
+
+Thanks to everyone who has contributed!
+<a href="https://github.com/BenCaunt/CTRL-ALT-FTC/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=BenCaunt/CTRL-ALT-FTC" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
