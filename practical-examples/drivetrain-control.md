@@ -99,7 +99,7 @@ For thetaControl you will need to consult the [Dealing with Angles](https://www.
 {% endhint %}
 
 {% hint style="success" %}
-After completeting all of these steps you will now have a fully functional pose stabalization controller for a mecanum robot!
+After completing all of these steps you will now have a fully functional pose stabilization controller for a mecanum robot!
 {% endhint %}
 
 {% embed url="https://youtu.be/knZLd0yyHw4" %}
@@ -108,9 +108,9 @@ Disturbance rejection qualities of similar control technique
 
 ## Differential Drivetrain Controller
 
-Differential drive robots such as 4 wheel drive, 6 wheel drive, and tank tred robots are unfortunately a beast to control.  This is because of one unfortunate quality that differential drive robots possess: They are underactuated systems. &#x20;
+Differential drive robots such as 4 wheel drive, 6 wheel drive, and tank tread robots are unfortunately a beast to control.  This is because of one unfortunate quality that differential drive robots possess: They are underactuated systems. &#x20;
 
-In control theory an underactuated system is defined as a system that has less actuators than they do outputs to control.  Intuitively it makes sense as a fully actuated system such as a mecanum drive can move towards the desired x,y position while turning towards the desired angle.  A differential drive robot cannot do this.  Instead it needs to first turn towards the target x,y position, move towards the target position and then once at the x,y position turn to the desired angle. &#x20;
+In control theory, an underactuated system is defined as a system that has fewer actuators than they do outputs to control.  Intuitively it makes sense as a fully actuated system such as a mecanum drive can move towards the desired x,y position while turning towards the desired angle.  A differential drive robot cannot do this.  Instead it needs to first turn towards the target x,y position, move towards the target position and then once at the x,y position turn to the desired angle. &#x20;
 
 ### Naive Differential Drive Controller&#x20;
 

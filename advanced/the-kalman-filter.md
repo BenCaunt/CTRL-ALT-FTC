@@ -18,7 +18,7 @@ One common theme in control theory is feedback; feedback can also be used in the
 
 First, the Kalman filter makes an initial estimate using the following equation:
 
-![Estimate the current state using the model ](<../.gitbook/assets/kalman-filter-state-projection (1).png>)
+![Estimate the current state using the model ](../.gitbook/assets/kalman-filter-state-projection.png)
 
 Generally, for FTC scale applications, 'U' is simply an estimate of how much the estimate has changed since t-1. Such as the change in angle between the t and t-1.
 
@@ -52,11 +52,11 @@ For A's value, we first need to understand a bit about state-space representatio
 
 ![Explaination for A's value](../.gitbook/assets/fix-typo-aaaa.png)
 
-Now we have our A 'Matrix' which is simply a scalar value of 1.  In addition to this we now understand how the initial prediction of our systems state was derived. &#x20;
+Now we have our A 'Matrix' which is simply a scalar value of 1.  In addition to this, we now understand how the initial prediction of our system's state was derived. &#x20;
 
-Next we need to find **H**.
+Next, we need to find **H**.
 
-H is what is known as the sensor transition matrix and this matrix tells us which of our systems states are directly observable by a sensor. **Since we are dealing with a SISO system and we know for a fact that it is an observable state because we have a value for Z in the feedback equation then the value for H **_**must be equal to 1**_**.** We know this because the real feedback equation actually contains this H matrix multiplied by our systems state!
+H is what is known as the sensor transition matrix and this matrix tells us which of our system's states are directly observable by a sensor. **Since we are dealing with a SISO system and we know for a fact that it is an observable state because we have a value for Z in the feedback equation then the value for H **_**must be equal to 1**_**.** We know this because the real feedback equation actually contains this H matrix multiplied by our system's state!
 
 ![Previous Feedback equation but with the H term for clarity.](../.gitbook/assets/real-feedback-term.png)
 
@@ -64,7 +64,7 @@ In a more extensive system, the H matrix would ensure we only perform feedback o
 
 _We initialize these to a simple initial guess for the covariance (P) and the Kalman gain (K) as they will be iteratively optimized later._&#x20;
 
-Finally, that leaves the model and sensor covariances known as Q and R. These are values that we, the implementor of the Kalman filter, have to determine. Large values of Q correspond with high trust in the model (estimate before feedback) accuracy, and large values of R correspond with high accuracy of the sensor value Z. The process of using the [DARE ](https://en.wikipedia.org/wiki/Algebraic\_Riccati\_equation)(discrete-time algebraic Riccati equation) to find P is done by to optimize for a value of K that minimizes a cost function constrained by Q, and R. Changing Q and R will change how the Kalman gain is computed and will therefore directly impact your sensor performance.&#x20;
+Finally, that leaves the model and sensor covariances known as Q and R. These are values that we, the implementor of the Kalman filter, have to determine. Large values of Q correspond with high trust in the model (estimate before feedback) accuracy, and large values of R correspond with high accuracy of the sensor value Z. The process of using the [DARE ](https://en.wikipedia.org/wiki/Algebraic\_Riccati\_equation)(discrete-time algebraic Riccati equation) to find P is done to optimize for a value of K that minimizes a cost function constrained by Q, and R. Changing Q and R will change how the Kalman gain is computed and will therefore directly impact your sensor performance.&#x20;
 
 One may have now realized that each of these 'matrices' is just a single scalar value for our applications. The result of this finding means that we can simplify the equations for calculating Kalman Gain and covariance to:
 
@@ -72,7 +72,7 @@ One may have now realized that each of these 'matrices' is just a single scalar 
 
 ## Putting it all together
 
-Finally we have independently derived each of the equations we need for our SISO Kalman filter.  Now we can put them together and then we will be able to effectively implement our filter in software.  Taking each simplified part and putting them into a computable procedure will yield:&#x20;
+Finally, we have independently derived each of the equations we need for our SISO Kalman filter.  Now we can put them together and then we will be able to effectively implement our filter in software.  Taking each simplified part and putting them into a computable procedure will yield:&#x20;
 
 ![Procedure for our SISO Kalman Filter](../.gitbook/assets/final-kalman-filter-derivation.png)
 
@@ -83,7 +83,7 @@ double x = 0; // your initial state
 double Q = 0.1; // your model covariance
 double R = 0.4; // your sensor covariance
 double p = 1; // your initial covariance guess
-double K = 1; // your initial kalman gain guess
+double K = 1; // your initial Kalman gain guess
 
 double x_previous = x;
 double p_previous = p;
@@ -114,13 +114,13 @@ while (true) {
 Finally, you have now implemented one of the most important filters in modern control theory. &#x20;
 
 {% hint style="success" %}
-If one desires, they can move the steps to calculate the kalman gain / covariance operations into a 100+ iteration for loop.  This allows the user to precompute the kalman gain.  This will lead to your state estimate converging faster. &#x20;
+If one desires, they can move the steps to calculate the Kalman gain/covariance operations into a 100+ iteration For Loop.  This allows the user to precompute the Kalman gain.  This will lead to your state estimate converging faster. &#x20;
 {% endhint %}
 
 ### Implementation Example
 
-Here you can find a jupyter notebook for a kalman filter that fuses a motion profile and velocity sensor: [https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb](https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb)
+Here you can find a Jupyter notebook for a Kalman filter that fuses a motion profile and velocity sensor: [https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb](https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb)
 
 ## Limitations of our work
 
-For simplicity sake we made the assumption that the majority of systems we will be dealing with in FTC are single input, single output systems.  Unfortunately this is not guaranteed and you may have to end up with a more complicated filter where you must use matrices instead of scalar values.  For that you will need to use a library such as [EJML ](http://ejml.org/wiki/index.php?title=Main\_Page)and remove lots of the simplifications that we made.&#x20;
+For simplicity's sake, we made the assumption that the majority of systems we will be dealing with in FTC are single-input, single-output systems.  Unfortunately, this is not guaranteed and you may have to end up with a more complicated filter where you must use matrices instead of scalar values.  For that, you will need to use a library such as [EJML ](http://ejml.org/wiki/index.php?title=Main\_Page)and remove lots of the simplifications that we made.&#x20;
