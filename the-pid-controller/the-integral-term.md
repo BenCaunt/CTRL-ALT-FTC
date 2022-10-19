@@ -9,10 +9,10 @@ description: Introduction to the integral term
 The Integral term of a PID controller can be thought of as an extra bit of "kick" that the controller needs to converge on its reference . Integration is the process of adding up all of the parts into a whole. In this case, integration is the sum of all of the errors over time.
 
 {% hint style="info" %}
-Integration is usually denoted by the symbol usually denotes integration '∫ '. This symbol is generally used to describe a function that gives the area under the line of another part. This may seem a little bit daunting to those without calculus knowledge, but trust me, it's straightforward in this context. 
+Integration is usually denoted by the symbol usually denotes integration '∫ '. This symbol is generally used to describe a function that gives the area under the line of another part. This may seem a little bit daunting to those without calculus knowledge, but trust me, it's straightforward in this context.&#x20;
 {% endhint %}
 
-Traditionally in calculus, we are dealing with _**continuous**_ functions such as f(x) = x^2. In FTC, we do not have this privilege. We are instead required to use _**discrete**_ measurements. This means that we are getting new data at some intervals without having sizes in between. This, unfortunately, means that our integration will not be exact, and some approximations will be made.  
+Traditionally in calculus, we are dealing with _**continuous**_ functions such as f(x) = x^2. In FTC, we do not have this privilege. We are instead required to use _**discrete**_ measurements. This means that we are getting new data at some intervals without having sizes in between. This, unfortunately, means that our integration will not be exact, and some approximations will be made. &#x20;
 
 ## How do we Integrate discrete data?
 
@@ -30,22 +30,22 @@ Forward Euler Integration works by the following sequence:
 ![Forward Euler Integration ](../.gitbook/assets/forward-euler-integration-example-.png)
 
 {% hint style="success" %}
-For you calculus inclinded individuals, Forward Euler Integration may already be familiar to you as riemann sum.
+For you calculus-inclined individuals, Forward Euler Integration may already be familiar to you as Riemann sum.
 {% endhint %}
 
- As you can see from the figure above, Forward Euler Integration can approximate the integral of the data by taking measurements at discrete points and then solving for the area as a rectangle. While this does tend to undershoot or overshoot the authentic integral, the differences are pretty negligible for this application.
+&#x20;As you can see from the figure above, Forward Euler Integration can approximate the integral of the data by taking measurements at discrete points and then solving for the area as a rectangle. While this does tend to undershoot or overshoot the authentic integral, the differences are pretty negligible for this application.
 
 ### Software implementation
 
-We actually imeplemented forward Euler integration already in the Software implementation of PID in our introduction to PID.
+We actually implemented forward Euler integration already in the Software implementation of PID in our introduction to PID.
 
 ```
 integralSum = integralSum + (error * timer.seconds());
 ```
 
-This integral sum is then added to the output of our controller which is then sent as the input to our system.  
+This integral sum is then added to the output of our controller which is then sent as the input to our system. &#x20;
 
-## Effect of Integration in PID 
+## Effect of Integration in PID&#x20;
 
 Integration is useful because it forces our error to be pushed toward 0 over time.  This allows our system to be much more robust against disturbances such as gravity, friction, and backlash.
 

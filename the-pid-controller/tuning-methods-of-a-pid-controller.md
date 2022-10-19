@@ -13,8 +13,8 @@ description: >-
 There are a few different ways to approach manually tuning a PID controller, but a popular one appears to be the following:
 
 1. Start with Kp, Ki, and Kd at 0.
-2. Increase Kp until steady state error is very low.
-3. Increase Ki until steady state error is removed entirely.
+2. Increase Kp until steady-state error is very low.
+3. Increase Ki until steady-state error is removed entirely.
 4. Increase Kd until oscillations are removed.
 
 This method above works well for many systems but many people have better luck with other methods. &#x20;
@@ -27,7 +27,7 @@ Manning PID controllers manually require a little bit of experience, but this kn
 
 Finding a good value for Kp to begin with can be very helpful.  To do this you must know the maximum output of your system and the units that you are using to measure your system. &#x20;
 
-#### Effect of each term on the controllers performance
+#### Effect of each term on the controller's performance
 
 | Parameter | Rise time     | Overshoot | Settling time  | Steady-state error      | Stability                    |
 | --------- | ------------- | --------- | -------------- | ----------------------- | ---------------------------- |
