@@ -17,6 +17,7 @@
 * [Full State feedback](advanced/full-state-feedback.md)
 * [The Kalman Filter](advanced/the-kalman-filter.md)
 * [Gain Scheduling](advanced/gain-scheduling.md)
+* [Motion Profiling](advanced/motion-profiling.md)
 
 ## Continued Learning
 
