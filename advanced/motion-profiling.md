@@ -24,7 +24,7 @@ Motion profiles define a trajectory for our reference over a certain time period
 
 To use it, we set our PID's reference to whatever the motion profile tells us to, given the current time.
 
-#### Trapezoidal motion profiles
+### Trapezoidal motion profiles
 
 The most common type of motion profile in FTC is the trapezoidal motion profile. It's named that way because it results in a target velocity reference graph that looks like a trapezoid, since it's limiting acceleration and velocity.
 
