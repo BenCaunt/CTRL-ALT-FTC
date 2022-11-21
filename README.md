@@ -7,10 +7,10 @@ description: >-
 
 # CTRL ALT FTC
 
-![](<.gitbook/assets/CTRL ALT FTC NEW COLOR .png>)
+<figure><img src=".gitbook/assets/Screen Shot 2022-11-21 at 2.32.34 AM.png" alt=""><figcaption></figcaption></figure>
 
 {% hint style="success" %}
-Returning visitors,  We are currently looking for ways to adapt in order to best assist the needs of the First Tech Challenge community.  If you have time it would mean the world to us if you took the time out of your day to fill out this form. Any and all feedback is appreciated and can be quickly [left here](https://forms.gle/SjSEG5mSNRPiBNyK7).
+Returning visitors, We are currently looking for ways to adapt in order to best assist the needs of the First Tech Challenge community. If you have time it would mean the world to us if you took the time out of your day to fill out this form. Any and all feedback is appreciated and can be quickly [left here](https://forms.gle/SjSEG5mSNRPiBNyK7).
 {% endhint %}
 
 ### Control System Example
@@ -25,14 +25,10 @@ This article is an introductory guide to the beautiful world of Control Theory f
 
 ‌ This guide assumes that you have experience with the SDK. While this does make it slightly tricky for absolute beginners to follow, it also allows the knowledge to be applicable outside of First Tech Challenge.
 
-_**Please note, all of the code examples are pseudocode of how you would go about a java implementation, understand that there may be a little more work to do than what is shown in the document as these extra details would in many cases take away from the learning experience.**_&#x20;
+_**Please note, all of the code examples are pseudocode of how you would go about a java implementation, understand that there may be a little more work to do than what is shown in the document as these extra details would in many cases take away from the learning experience.**_
 
 If you would like to contribute information to CTRL ALT FTC you can access the [github ](https://github.com/BenCaunt/CTRL-ALT-FTC)and make a pull request.
 
-
-Thanks to everyone who has contributed!
-<a href="https://github.com/BenCaunt/CTRL-ALT-FTC/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=BenCaunt/CTRL-ALT-FTC" />
-</a>
+Thanks to everyone who has contributed! [![](https://contrib.rocks/image?repo=BenCaunt/CTRL-ALT-FTC)](https://github.com/BenCaunt/CTRL-ALT-FTC/graphs/contributors)
 
 Made with [contrib.rocks](https://contrib.rocks).
