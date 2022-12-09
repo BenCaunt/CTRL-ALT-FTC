@@ -14,7 +14,7 @@ Imagine that we're trying to move our robot along a 1D line to a certain referen
 
 The trivial method to limit acceleration is to cap the output of the PID Controller, but we can do better.
 
-What if we could directly choose a maximum acceleration? And a maximum deacceleration too? (slip also occurs when we deacceleration too quickly!). What if we also wanted to specify a maximum velocity because we may know that some velocities are too high for us to control reasonably?
+What if we could directly choose a maximum acceleration? And a maximum deacceleration too? (slip also occurs when we deaccelerate too quickly!). What if we also wanted to specify a maximum velocity because we may know that some velocities are too high to control reasonably?
 
 That's where motion profiling comes in!
 
