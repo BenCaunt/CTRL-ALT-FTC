@@ -66,13 +66,46 @@ double reference = YOUR_TARGET_ANGLE;
 double power = Math.cos(reference) * Kcos; 
 ```
 
-We can then use the code above in combination with a PID controller or other feedback controller.  Using this will improve the reliability as it will more accurately compensate gravity than a simple integrator (though we recommend using both this and an integrator for optimal results).&#x20;
+We can then use the code above with a PID controller or other feedback controller.  Using this will improve the reliability as it will more accurately compensate gravity than a simple integrator (though we recommend using both this and an integrator for optimal results).&#x20;
 
-This works because cos is the ratio of the adjacent of a right triangle divided by the adjacent of a triangle.  Whenever the arm is extended straight out (180 degrees) the cos is at its peak (1) as this is the point where it must use the most l torque to hold its weight, Whenever we want to go straight down (90 degrees) the arm does not require any torque to hold its weight, which matches our feedforward controller as the cosine of 90 degrees is 0. &#x20;
+This works because cos is the ratio of the adjacent of a right triangle divided by the adjacent of a triangle.  Whenever the arm is extended straight out (180 degrees), the cos is at its peak (1) as this is the point where it must use the most l torque to hold its weight; whenever we want to go straight down (90 degrees) the arm does not require any torque to hold its weight, which matches our feedforward controller as the cosine of 90 degrees is 0. &#x20;
 
-By using a nonlinear feedforward controller we can improve the reliability of our control system and improve the performance of our system.&#x20;
+By using a nonlinear feedforward controller, we can improve the reliability of our control system and improve the performance of our system.&#x20;
 
 ### Slide Gravity Feedforward
+
+For cascading linear slides, the force of gravity is generally near constant.  For Continuous rigging, this assumption is not as true but is generally close enough to ignore the difference so it is okay to treat the two methods the same.&#x20;
+
+In physics, the force of gravity is equal to the mass of a system \* the gravitational constant g.
+
+$$
+f=mg
+$$
+
+Combined with newtons second law:&#x20;
+
+$$
+f=ma
+$$
+
+We can conclude that the acceleration due to gravity is constant:&#x20;
+
+$$
+ma=mg \\ a = g
+$$
+
+In order to compensate for this, we can simply tune a constant power to reject the disturbance:
+
+```java
+double Kg = // tune till the slide holds itself in place. 
+
+// PID for general movement of the system, feedforward removes the disturbance
+// this improves the responsiveness of the PID controller
+double output = PID(reference, state) + Kg; 
+
+```
+
+
 
 
 
