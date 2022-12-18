@@ -70,7 +70,9 @@ This type of controller works especially well with motion profiles.  Homeostasis
 
 ## Bang Bang Control
 
-While not recommended for the majority of tasks, Bang Bang control can often be the right tool for the job if one needs a very agressive controller and doesn't mind either oscillations or large steady state error. java
+While not recommended for the majority of tasks, Bang Bang control can often be the right tool for the job if one needs a very aggressive controller and doesn't mind either oscillations or large steady state error.
+
+### BangBang
 
 ```java
 double maxOutput = 1;
