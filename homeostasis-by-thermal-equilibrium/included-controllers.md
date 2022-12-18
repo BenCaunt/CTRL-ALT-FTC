@@ -144,7 +144,7 @@ while (true) {
 }
 ```
 
-This is a more advanced feedforward controller that extends the basic feedforward controller.  It adds angle compensation for arms and gravity compensation for elevators / linear slides.  The intent is that Kg and Kcos should be used exclusively and not with one another.  kg provides a constant upward torque to counteract gravity and Kcos is multiplied by the reference angle of your to compensate for the nonlinear effects of it rotating.  **IF Kcos is USED X MUST BE IN RADIANS.**  With Kcos and Kg, these should be tuned so the system can hold its weight without feedback.&#x20;
+This is a more advanced feedforward controller that extends the basic feedforward controller.  It adds angle compensation for arms and gravity compensation for elevators / linear slides.  The intent is that Kg and Kcos should be used exclusively and not with one another.  Kg provides a constant upward torque to counteract gravity and Kcos is multiplied by the reference angle of your lift to compensate for the nonlinear effects of it rotating.  **IF Kcos is USED X MUST BE IN RADIANS.**  With Kcos and Kg, these should be tuned so the system can hold its weight without feedback.&#x20;
 
 ## No Control
 
