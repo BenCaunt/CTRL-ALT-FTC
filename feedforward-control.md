@@ -58,7 +58,7 @@ Rotating arms such as the one in the image below can be very easy to make but ca
 
 ![FTC 8300 Ultimate Goal Robot with Rotating Arm](<.gitbook/assets/Screen Shot 2021-12-02 at 8.57.29 PM.png>)
 
-In order to account for the gravity we can use the cosine of our target angle in order to compensate for the gravity.&#x20;
+In order to account and compensate for the acceleration caused by gravity we take the cosine of our target angle as shown in the following example.&#x20;
 
 ```java
 double Kcos = SOME_VALUE_YOU_TUNE; 
