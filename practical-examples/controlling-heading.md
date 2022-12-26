@@ -16,7 +16,7 @@ For example, let's assume that our robot is facing an angle of 1 degree. We woul
 
 ```java
 // This function normalizes the angle so it returns a value between -180° and 180° instead of 0° to 360°.
-public void angleWrap(double radians) {
+public double angleWrap(double radians) {
 
     while (radians > Math.PI) {
         radians -= 2 * Math.PI;
