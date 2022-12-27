@@ -41,7 +41,7 @@ There's a few different ways to implement trapezoidal motion profiling in code, 
 Here's an example of a pseudocode motion profile implementation.
 
 ```java
-double motion_profile(max_acceleration, max_velocity, distance, current_dt) {
+double motion_profile(max_acceleration, max_velocity, distance, time_from_start) {
   """
   Return the current reference position based on the given motion profile times, maximum acceleration, velocity, and current time.
   """
@@ -71,18 +71,18 @@ double motion_profile(max_acceleration, max_velocity, distance, current_dt) {
 
   // check if we're still in the motion profile
   entire_dt = acceleration_dt + cruise_dt + deacceleration_dt
-  if (current_dt > entire_dt)
+  if (time_from_start > entire_dt)
     return distance
 
   // if we're accelerating
-  if (current_dt < acceleration_dt)
+  if (time_from_start < acceleration_dt)
     // use the kinematic equation for acceleration
-    return 0.5 * max_acceleration * current_dt ** 2
+    return 0.5 * max_acceleration * time_from_start ** 2
 
   // if we're cruising
-  else if (current_dt < deacceleration_time) {
+  else if (time_from_start < deacceleration_time) {
     acceleration_distance = 0.5 * max_acceleration * acceleration_dt ** 2
-    cruise_current_dt = current_dt - acceleration_dt
+    cruise_current_dt = time_from_start - acceleration_dt
 
     // use the kinematic equation for constant velocity
     return acceleration_distance + max_velocity * cruise_current_dt
@@ -92,7 +92,7 @@ double motion_profile(max_acceleration, max_velocity, distance, current_dt) {
   else {
     acceleration_distance = 0.5 * max_acceleration * acceleration_dt ** 2
     cruise_distance = max_velocity * cruise_dt
-    deacceleration_time = current_dt - deacceleration_time
+    deacceleration_time = time_from_start - deacceleration_time
 
     // use the kinematic equations to calculate the instantaneous desired position
     return acceleration_distance + cruise_distance + max_velocity * deacceleration_time - 0.5 * max_acceleration * deacceleration_time ** 2
@@ -110,7 +110,7 @@ while (TrajectoryIsNotDone) {
     double instantTargetPosition = motion_profile_position(max_acceleration, 
                                                   max_velocity, 
                                                   distance, 
-                                                   current_dt);
+                                                   time_from_start);
 
     double motorPower = (instantTargetPosition - motor.getPosition()) * Kp
 }
@@ -124,16 +124,16 @@ while (TrajectoryIsNotDone) {
     double x = motion_profile_position(max_acceleration, 
                                                   max_velocity, 
                                                   distance, 
-                                                   current_dt);
+                                                   time_from_start);
     double v = motion_profile_velo(max_acceleration, 
                                                   max_velocity, 
                                                   distance, 
-                                                   current_dt);
+                                                   time_from_start);
                                                    
     double a = motion_profile_accel(max_acceleration, 
                                                   max_velocity, 
                                                   distance, 
-                                                   current_dt);
+                                                   time_from_start);
                                                    
     double motorPower = (x - motor.getPosition()) * Kp + Kv * v + Ka * a; 
 }
