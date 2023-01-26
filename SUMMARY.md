@@ -18,6 +18,7 @@
 * [The Kalman Filter](advanced/the-kalman-filter.md)
 * [Gain Scheduling](advanced/gain-scheduling.md)
 * [Motion Profiling](advanced/motion-profiling.md)
+* [SMARTDAMP Algorithm](advanced/smartdamp-algorithm.md)
 
 ## Continued Learning
 
