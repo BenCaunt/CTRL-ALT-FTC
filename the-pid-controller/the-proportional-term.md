@@ -28,7 +28,7 @@ As we can see from this example, we have a bit of steady-state error. The presen
 
 As we can see the performance of our system is improved. Do notice that we are **saturating** our system slightly. The aforementioned is because our system can only actually go up to **1** power in the FTC SDK. We are using more than this is not possible for our system. This issue is even more evident at higher gains.  &#x20;
 
-![System response with Kp = 2, Kd = 0, Ki = 0](<../.gitbook/assets/kp-2 (1).png>)
+![System response with Kp = 2, Kd = 0, Ki = 0](../.gitbook/assets/kp-2.png)
 
 We can see here that the steady state error is slightly reduced but is still there.  We will resolve this in the next chapter.&#x20;
 

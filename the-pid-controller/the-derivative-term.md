@@ -36,7 +36,7 @@ We can add derivative to this system to attempt to reduce these oscillations. &#
 
 ![Full PID controller with Kp = 2, Ki = 0.3, Kd = 0.2](../.gitbook/assets/kp-2-ki-0.3-kd-0.2.png)
 
-![System response with Kp = 2, Ki = 0.3, Kd = 0.2](../.gitbook/assets/kp-ki-0.3-kd-0.2-step-response.png)
+![System response with Kp = 2, Ki = 0.3, Kd = 0.2](<../.gitbook/assets/kp-ki-0.3-kd-0.2-step-response (1).png>)
 
 This response is significantly better! It reaches 0 steady-state error, and it barely overshoots!
 

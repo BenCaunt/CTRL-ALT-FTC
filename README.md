@@ -9,6 +9,8 @@ description: >-
 
 <figure><img src=".gitbook/assets/Screen Shot 2022-11-21 at 2.32.34 AM.png" alt=""><figcaption></figcaption></figure>
 
+<figure><img src=".gitbook/assets/ZEBRACAKE STICKER.png" alt=""><figcaption><p>Thanks to FRC 9000 for their help in sustaining CTRL ALT FTC for the future education of FTC!</p></figcaption></figure>
+
 {% hint style="success" %}
 Returning visitors, We are currently looking for ways to adapt in order to best assist the needs of the First Tech Challenge community. If you have time it would mean the world to us if you took the time out of your day to fill out this form. Any and all feedback is appreciated and can be quickly [left here](https://forms.gle/SjSEG5mSNRPiBNyK7).
 {% endhint %}

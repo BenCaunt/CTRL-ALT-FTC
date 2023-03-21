@@ -18,7 +18,7 @@ One common theme in control theory is feedback; feedback can also be used in the
 
 First, the Kalman filter makes an initial estimate using the following equation:
 
-![Estimate the current state using the model ](../.gitbook/assets/kalman-filter-state-projection.png)
+![Estimate the current state using the model ](<../.gitbook/assets/kalman-filter-state-projection (1).png>)
 
 Generally, for FTC scale applications, 'U' is simply an estimate of how much the estimate has changed since t-1. Such as the change in angle between the t and t-1.
 

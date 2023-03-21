@@ -14,7 +14,7 @@ Controllers like PID and Full State Feedback are inherently Linear.  They compos
 
 Gain scheduling is the idea where we modify our controller parameters relative to where our system is in space.  Imagine a rotating arm on your robot.  You begin by tuning your controller to stabilize in an up write position such as this:
 
-&#x20;![](<../.gitbook/assets/Untitled drawing (5) (1).png>)
+&#x20;![](<../.gitbook/assets/Untitled drawing (5).png>)
 
 You are happy with the performance of having the arm swing up to the vertical position so you proceed to test it in a horizontal position:
 
