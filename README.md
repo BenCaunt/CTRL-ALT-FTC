@@ -1,15 +1,12 @@
 ---
 description: >-
-  Team #22377 The Sigma Corns, Team #19376 Thermal Equilibrium, and FRC 9000 the
-  "ZebraCakes", present CTRL ALT FTC, the most comprehensive Control Theory
-  guide for FIRST Tech Challenge Teams.
+  We present CTRL ALT FTC, the most comprehensive Control Theory guide for FIRST
+  Tech Challenge Teams.
 ---
 
 # CTRL ALT FTC
 
 <figure><img src=".gitbook/assets/Screen Shot 2022-11-21 at 2.32.34 AM.png" alt=""><figcaption></figcaption></figure>
-
-<figure><img src=".gitbook/assets/ZEBRACAKE STICKER.png" alt=""><figcaption><p>Thanks to FRC 9000 for their help in sustaining CTRL ALT FTC for the future education of FTC!</p></figcaption></figure>
 
 {% hint style="success" %}
 Returning visitors, We are currently looking for ways to adapt in order to best assist the needs of the First Tech Challenge community. If you have time it would mean the world to us if you took the time out of your day to fill out this form. Any and all feedback is appreciated and can be quickly [left here](https://docs.google.com/forms/d/e/1FAIpQLScnAANnEH6ahHE7eQSAwdwcxpJuJWk-fX8zdBFKi6WB80BJfQ/viewform).
