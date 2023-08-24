@@ -84,7 +84,7 @@ while (true) {
 }
 ```
 
-This controller takes in two parameters, it's output power and a tolerance.  This controller works by making a simple comparison: is it too low or is it too high and then applies either maxOutput or -maxOutput to the system.  If the error is within tolerance (or hysterisis as the parameter is called), then the controller will return 0. This hysterisis prevents the bang bang controller from oscillating forever but has the trade off of introducing some state error.&#x20;
+This controller takes in two parameters, it's output power and a tolerance.  This controller works by making a simple comparison: is it too low or is it too high and then applies either maxOutput or -maxOutput to the system.  If the error is within tolerance (or hysteresis as the parameter is called), then the controller will return 0. This hysteresis prevents the bang bang controller from oscillating forever but has the trade off of introducing some state error.&#x20;
 
 ## Dealing with Angles
 

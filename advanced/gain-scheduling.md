@@ -33,7 +33,7 @@ Let's say that this is our current code:&#x20;
 ```java
 // imaginary PID controller and coefficients objects 
 PIDCoefficients for90Degrees = new PIDCoefficients(); 
-PIDController controller = new PID(for90Dgrees);  
+PIDController controller = new PID(for90Degrees);  
 
 
 while (loopIsRunning) {
