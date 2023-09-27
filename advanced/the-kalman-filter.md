@@ -18,7 +18,7 @@ One common theme in control theory is feedback; feedback can also be used in the
 
 First, the Kalman filter makes an initial estimate using the following equation:
 
-![Estimate the current state using the model ](<../.gitbook/assets/kalman-filter-state-projection (1).png>)
+![Estimate the current state using the model ](../.gitbook/assets/kalman-filter-state-projection.png)
 
 Generally, for FTC scale applications, 'U' is simply an estimate of how much the estimate has changed since t-1. Such as the change in angle between the t and t-1.
 
@@ -30,7 +30,7 @@ This process of projecting the state forward using the first equation and then a
 
 _**"For a Kalman filter you are not so much interested in the "stability" of**_**  x̂ **_**(full state estimation), but in the error between x (the actual state) and**_** x̂**_**. Because if this error goes to zero, then**_** x̂ **_**will become equal to x, which is what we want."**_&#x20;
 
-_In this quote,_ **x̂ **_**** refers to the state estimate and **x** refers to the true state._&#x20;
+_In this quote,_ **x̂** _refers to the state estimate and **x** refers to the true state._&#x20;
 
 source: Kwin van der Veen ([https://math.stackexchange.com/users/76466/kwin-van-der-veen](https://math.stackexchange.com/users/76466/kwin-van-der-veen)), Show stability of Kalman filter, URL (version: 2017-04-13): [https://math.stackexchange.com/q/2057891](https://math.stackexchange.com/q/2057891)
 

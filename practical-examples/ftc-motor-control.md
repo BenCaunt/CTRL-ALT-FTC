@@ -44,7 +44,7 @@ public class tutorial extends LinearOpMode {
 }
 ```
 
-Above there are a few things happening, for starters, on line 3 we are creating an object that is of type DcMotorEx, this is an extended version of the traditional DcMotor class that adds functionality such as measuring the velocity of the motor.  On line **8**, once the user presses init we initialize the motor to the given name that you defined earlier in the hardware map.  If you haven't done this yet you should probably stop and get this out of the way now.  Next on line **12,** we **** are setting the motor to use braking,  this allows our motor to decelerate much faster than the alternative float mode. &#x20;
+Above there are a few things happening, for starters, on line 3 we are creating an object that is of type DcMotorEx, this is an extended version of the traditional DcMotor class that adds functionality such as measuring the velocity of the motor.  On line **8**, once the user presses init we initialize the motor to the given name that you defined earlier in the hardware map.  If you haven't done this yet you should probably stop and get this out of the way now.  Next on line **12,** we are setting the motor to use braking,  this allows our motor to decelerate much faster than the alternative float mode. &#x20;
 
 On line **14** we are doing something that looks a little bit off but it is what we want.  **RUN WITHOUT** ENCODERS does **NOT** disable the encoder from doing things such as position or velocity measurement but instead lets us just assign raw motor power to our motor.  The alternative mode, RUN USING ENCODERS simply runs the motor at a speed proportional to its maximum speed, for example setting the power at 0.5 would run the motor at exactly 50% of its speed.  While this may sound great at first, this internal velocity control runs at a slower frequency and will often have less desirable results than using our own custom, external controller.  For this external controller to work properly we should be using RUN WITHOUT ENCODER.
 
@@ -179,4 +179,4 @@ There are a few places we can go to now to improve this
 
 
 
-&#x20;****&#x20;
+&#x20;
