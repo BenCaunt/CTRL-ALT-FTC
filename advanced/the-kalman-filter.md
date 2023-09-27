@@ -92,15 +92,15 @@ double z = 0;
 
 while (true) {
 
-    u = getInput(); // however you want to do this (IE, taking delta of encoder)
+    u = getInput(); // Ex: change in position from odometry.
     x = x_previous + u;
     
     p = p_previous + Q;
     
     K = p/(p + R);
     
-    z = getSecondSensor(); // you are probably already using a sensor for u, 
-                           // use another sensor for z
+    z = getSecondSensor(); // Pose Estimate from April Tag / Distance Sensor 
+
     x = x + K * (z - x);
     
     p = (1 - K) * p;
@@ -112,10 +112,6 @@ while (true) {
 ```
 
 Finally, you have now implemented one of the most important filters in modern control theory. &#x20;
-
-{% hint style="success" %}
-If one desires, they can move the steps to calculate the Kalman gain/covariance operations into a 100+ iteration For Loop.  This allows the user to precompute the Kalman gain.  This will lead to your state estimate converging faster. &#x20;
-{% endhint %}
 
 ### Implementation Example
 
