@@ -76,7 +76,7 @@ Finally, we have independently derived each of the equations we need for our SIS
 
 ![Procedure for our SISO Kalman Filter](../.gitbook/assets/final-kalman-filter-derivation.png)
 
-We can now relatively trivially implement the Kalman filter in java as:
+## Kalman Filter Pseudocode
 
 ```java
 double x = 0; // your initial state
