@@ -18,7 +18,7 @@ Another great use for feedforward is to replace the integral term of a feedback 
 double output = K * reference;
 ```
 
-As you can see, feedforward is farily trivial compared to the feedback control loops such as PID that we implemented in previous chapters. This is because feedforward is acting almost as a unit conversion between some input and some output. This conversion is determined by the tuned value K in the code snippet above.
+As you can see, feedforward is fairly trivial compared to the feedback control loops such as PID that we implemented in previous chapters. This is because feedforward is acting almost as a unit conversion between some input and some output. This conversion is determined by the tuned value K in the code snippet above.
 
 In FTC this value is often referred to as 'Kv', specifically when dealing with controlling the velocity of a plant. Additionally a term for acceleration, fittingly called 'Ka' can also be added.
 

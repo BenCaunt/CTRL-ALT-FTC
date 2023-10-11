@@ -25,7 +25,7 @@ Each one of these methods has a relatively basic solution which we will analyze 
 
 Integral windup is a phenomenon that occurs whenever the integral output saturates our system.  Integral windup causes the system to remain traveling in the same direction for some time until the integral sum drops low enough for our system to regain control.  Brian Douglas does a fantastic job of explaining the issue of Integral windup on the Matlab youtube channel [here](https://youtu.be/NVLXCwc8HzM?t=201).  \
 \
-There are a few easy things that can be implemented to help reduce the likely hood of integral windup occuring.  One of these is to simply put limits on our Integral sum such as in the following code example:
+There are a few easy things that can be implemented to help reduce the likely hood of integral windup occurring.  One of these is to simply put limits on our Integral sum such as in the following code example:
 
 ```java
 // sum our integral
