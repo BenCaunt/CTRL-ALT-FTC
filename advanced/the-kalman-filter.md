@@ -117,6 +117,9 @@ Finally, you have now implemented one of the most important filters in modern co
 
 Here you can find a Jupyter notebook for a Kalman filter that fuses a motion profile and velocity sensor: [https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb](https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb)
 
+
+## Multiple Sensors
+You can also use multiple sensors with the Kalman Filter! For each loop, you can first run a prediction and then for each additional sensor can have an update loop. In some cases, however, you'd be better off using a weighted average of all the sensor readings. 
 ## Limitations of our work
 
 For simplicity's sake, we made the assumption that the majority of systems we will be dealing with in FTC are single-input, single-output systems.  Unfortunately, this is not guaranteed and you may have to end up with a more complicated filter where you must use matrices instead of scalar values.  For that, you will need to use a library such as [EJML ](http://ejml.org/wiki/index.php?title=Main\_Page)and remove lots of the simplifications that we made.&#x20;
