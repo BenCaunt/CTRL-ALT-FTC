@@ -14,7 +14,7 @@ Imagine that we're trying to move our robot along a 1D line to a certain referen
 
 The trivial method to limit acceleration is to cap the output of the PID Controller, but we can do better.
 
-What if we could directly choose a maximum acceleration? And a maximum deacceleration too? (slip also occurs when we deaccelerate too quickly!). What if we also wanted to specify a maximum velocity because we may know that some velocities are too high to control reasonably?
+What if we could directly choose a maximum acceleration? And a maximum deceleration too? (slip also occurs when we decelerate too quickly!). What if we also wanted to specify a maximum velocity because we may know that some velocities are too high to control reasonably?
 
 That's where motion profiling comes in!
 
@@ -30,7 +30,7 @@ The most common type of motion profile in FTC is the trapezoidal motion profile.
 
 <figure><img src="../.gitbook/assets/motion_profile.png" alt=""><figcaption></figcaption></figure>
 
-It consists of three phrases: acceleration, cruise, and deacceleration. In the first phase, the target velocity increases by the maximum acceleration, in the cruise phase the target velocity doesn't change, and the target velocity decreases by the maximum acceleration, ending at a target velocity of 0.
+It consists of three phrases: acceleration, cruise, and deceleration. In the first phase, the target velocity increases by the maximum acceleration, in the cruise phase the target velocity doesn't change, and the target velocity decreases by the maximum acceleration, ending at a target velocity of 0.
 
 Trapezoidal motion profiles are relatively simple, and they're going to be sufficient for smooth and precise motion for pretty much any type of mechanism in FTC.
 
@@ -41,7 +41,7 @@ There's a few different ways to implement trapezoidal motion profiling in code, 
 Here's an example of a pseudocode motion profile implementation.
 
 ```java
-double motion_profile(max_acceleration, max_velocity, distance, current_dt) {
+double motion_profile(max_acceleration, max_velocity, distance, elapsed_time) {
   """
   Return the current reference position based on the given motion profile times, maximum acceleration, velocity, and current time.
   """
@@ -62,27 +62,27 @@ double motion_profile(max_acceleration, max_velocity, distance, current_dt) {
   max_velocity = max_acceleration * acceleration_dt
 
   // we decelerate at the same rate as we accelerate
-  deacceleration_dt = acceleration_dt
+  deceleration_dt = acceleration_dt
 
   // calculate the time that we're at max velocity
   cruise_distance = distance - 2 * acceleration_distance
   cruise_dt = cruise_distance / max_velocity
-  deacceleration_time = acceleration_dt + cruise_dt
+  deceleration_time = acceleration_dt + cruise_dt
 
   // check if we're still in the motion profile
-  entire_dt = acceleration_dt + cruise_dt + deacceleration_dt
-  if (current_dt > entire_dt)
+  entire_dt = acceleration_dt + cruise_dt + deceleration_dt
+  if (elapsed_time > entire_dt)
     return distance
 
   // if we're accelerating
-  if (current_dt < acceleration_dt)
+  if (elapsed_time < acceleration_dt)
     // use the kinematic equation for acceleration
-    return 0.5 * max_acceleration * current_dt ** 2
+    return 0.5 * max_acceleration * elapsed_time ** 2
 
   // if we're cruising
-  else if (current_dt < deacceleration_time) {
+  else if (elapsed_time < deceleration_time) {
     acceleration_distance = 0.5 * max_acceleration * acceleration_dt ** 2
-    cruise_current_dt = current_dt - acceleration_dt
+    cruise_current_dt = elapsed_time - acceleration_dt
 
     // use the kinematic equation for constant velocity
     return acceleration_distance + max_velocity * cruise_current_dt
@@ -92,10 +92,10 @@ double motion_profile(max_acceleration, max_velocity, distance, current_dt) {
   else {
     acceleration_distance = 0.5 * max_acceleration * acceleration_dt ** 2
     cruise_distance = max_velocity * cruise_dt
-    deacceleration_time = current_dt - deacceleration_time
+    deceleration_time = elapsed_time - deceleration_time
 
     // use the kinematic equations to calculate the instantaneous desired position
-    return acceleration_distance + cruise_distance + max_velocity * deacceleration_time - 0.5 * max_acceleration * deacceleration_time ** 2
+    return acceleration_distance + cruise_distance + max_velocity * deceleration_time - 0.5 * max_acceleration * deceleration_time ** 2
   }
 }
 ```
@@ -110,7 +110,7 @@ while (TrajectoryIsNotDone) {
     double instantTargetPosition = motion_profile_position(max_acceleration, 
                                                   max_velocity, 
                                                   distance, 
-                                                   current_dt);
+                                                   elapsed_time);
 
     double motorPower = (instantTargetPosition - motor.getPosition()) * Kp
 }
@@ -124,16 +124,16 @@ while (TrajectoryIsNotDone) {
     double x = motion_profile_position(max_acceleration, 
                                                   max_velocity, 
                                                   distance, 
-                                                   current_dt);
+                                                   elapsed_time);
     double v = motion_profile_velo(max_acceleration, 
                                                   max_velocity, 
                                                   distance, 
-                                                   current_dt);
+                                                   elapsed_time);
                                                    
     double a = motion_profile_accel(max_acceleration, 
                                                   max_velocity, 
                                                   distance, 
-                                                   current_dt);
+                                                   elapsed_time);
                                                    
     double motorPower = (x - motor.getPosition()) * Kp + Kv * v + Ka * a; 
 }

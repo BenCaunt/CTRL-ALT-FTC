@@ -18,7 +18,7 @@ One common theme in control theory is feedback; feedback can also be used in the
 
 First, the Kalman filter makes an initial estimate using the following equation:
 
-![Estimate the current state using the model ](<../.gitbook/assets/kalman-filter-state-projection (1).png>)
+![Estimate the current state using the model ](../.gitbook/assets/kalman-filter-state-projection.png)
 
 Generally, for FTC scale applications, 'U' is simply an estimate of how much the estimate has changed since t-1. Such as the change in angle between the t and t-1.
 
@@ -30,7 +30,7 @@ This process of projecting the state forward using the first equation and then a
 
 _**"For a Kalman filter you are not so much interested in the "stability" of**_**  x̂ **_**(full state estimation), but in the error between x (the actual state) and**_** x̂**_**. Because if this error goes to zero, then**_** x̂ **_**will become equal to x, which is what we want."**_&#x20;
 
-_In this quote,_ **x̂ **_**** refers to the state estimate and **x** refers to the true state._&#x20;
+_In this quote,_ **x̂** _refers to the state estimate and **x** refers to the true state._&#x20;
 
 source: Kwin van der Veen ([https://math.stackexchange.com/users/76466/kwin-van-der-veen](https://math.stackexchange.com/users/76466/kwin-van-der-veen)), Show stability of Kalman filter, URL (version: 2017-04-13): [https://math.stackexchange.com/q/2057891](https://math.stackexchange.com/q/2057891)
 
@@ -76,7 +76,7 @@ Finally, we have independently derived each of the equations we need for our SIS
 
 ![Procedure for our SISO Kalman Filter](../.gitbook/assets/final-kalman-filter-derivation.png)
 
-We can now relatively trivially implement the Kalman filter in java as:
+## Kalman Filter Pseudocode
 
 ```java
 double x = 0; // your initial state
@@ -92,15 +92,15 @@ double z = 0;
 
 while (true) {
 
-    u = getInput(); // however you want to do this (IE, taking delta of encoder)
+    u = getInput(); // Ex: change in position from odometry.
     x = x_previous + u;
     
     p = p_previous + Q;
     
     K = p/(p + R);
     
-    z = getSecondSensor(); // you are probably already using a sensor for u, 
-                           // use another sensor for z
+    z = getSecondSensor(); // Pose Estimate from April Tag / Distance Sensor 
+
     x = x + K * (z - x);
     
     p = (1 - K) * p;
@@ -113,14 +113,13 @@ while (true) {
 
 Finally, you have now implemented one of the most important filters in modern control theory. &#x20;
 
-{% hint style="success" %}
-If one desires, they can move the steps to calculate the Kalman gain/covariance operations into a 100+ iteration For Loop.  This allows the user to precompute the Kalman gain.  This will lead to your state estimate converging faster. &#x20;
-{% endhint %}
-
 ### Implementation Example
 
 Here you can find a Jupyter notebook for a Kalman filter that fuses a motion profile and velocity sensor: [https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb](https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb)
 
+
+## Multiple Sensors
+You can also use multiple sensors with the Kalman Filter! For each loop, you can first run a prediction and then for each additional sensor can have an update loop. In some cases, however, you'd be better off using a weighted average of all the sensor readings. 
 ## Limitations of our work
 
 For simplicity's sake, we made the assumption that the majority of systems we will be dealing with in FTC are single-input, single-output systems.  Unfortunately, this is not guaranteed and you may have to end up with a more complicated filter where you must use matrices instead of scalar values.  For that, you will need to use a library such as [EJML ](http://ejml.org/wiki/index.php?title=Main\_Page)and remove lots of the simplifications that we made.&#x20;

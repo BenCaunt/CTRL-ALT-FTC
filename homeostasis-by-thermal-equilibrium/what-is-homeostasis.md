@@ -18,8 +18,8 @@ Currently homestasis provides the following features:
 * Estimation algorithms to improve sensor readings:
   * Low Pass Filter
   * Least Squares + Kalman Filter
-* Many useful utilies such as the WPILib Motion Profile and functions to deal with angles.&#x20;
-* Systems to easily utilize the afformentioned algorithms in a unified way.
+* Many useful utilities such as the WPILib Motion Profile and functions to deal with angles.&#x20;
+* Systems to easily utilize the aforementioned algorithms in a unified way.
   * BasicSystem
     * A combination of an Estimator, Feedback, and Feedforward Controller
   * &#x20;PositionVelocitySystem

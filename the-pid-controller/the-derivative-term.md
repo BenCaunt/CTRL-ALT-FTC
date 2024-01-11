@@ -15,8 +15,8 @@ You can think of the PID controller's derivative term like a car's suspension or
 \
 **(error - last error) / delta time**
 
-****\
-****The error is the difference between the reference and the current position. The last error is the previous error, and delta time is the time between the sampling of the previous measurement and the current measurement.
+\
+The error is the difference between the reference and the current position. The last error is the previous error, and delta time is the time between the sampling of the previous measurement and the current measurement.
 
 ```java
 derivative = (error - lastError) / timer.seconds();
@@ -36,7 +36,7 @@ We can add derivative to this system to attempt to reduce these oscillations. &#
 
 ![Full PID controller with Kp = 2, Ki = 0.3, Kd = 0.2](../.gitbook/assets/kp-2-ki-0.3-kd-0.2.png)
 
-![System response with Kp = 2, Ki = 0.3, Kd = 0.2](<../.gitbook/assets/kp-ki-0.3-kd-0.2-step-response (1).png>)
+![System response with Kp = 2, Ki = 0.3, Kd = 0.2](../.gitbook/assets/kp-ki-0.3-kd-0.2-step-response.png)
 
 This response is significantly better! It reaches 0 steady-state error, and it barely overshoots!
 
