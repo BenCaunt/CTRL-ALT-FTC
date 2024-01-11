@@ -18,15 +18,15 @@ Where u(t) is our current motor input\
 
 
 
-Full state feedback takes a slightly different approach than PID control but has the same idea. 
+Full state feedback takes a slightly different approach than PID control but has the same idea.
 
-One can model a linear system in the form: 
+One can model a linear system in the form:
 
 $$
 \dot{x}=Ax+Bu
 $$
 
-​Where x is the vector that represents the state of your system. A simple model will have two states in this vector; position and velocity. 
+​Where x is the vector that represents the state of your system. A simple model will have two states in this vector; position and velocity.
 
 $$
 \begin{bmatrix} x  \\ \dot{x} \end{bmatrix}
@@ -60,13 +60,13 @@ $$
 \begin{bmatrix} k_1 \\ k_2 \end{bmatrix} \cdot - \begin{bmatrix} x  \\ \dot{x} \end{bmatrix}=-k_1x-k_2\dot{x}
 $$
 
-​and so our control input is defined as: 
+​and so our control input is defined as:
 
 $$
 u(t)=-k_1x-k_2\dot{x}
 $$
 
-​This control law will stabalize x and x-dot to the state of zero but in many systems we want to go to a state other than 0. We can generalize this control law for any desired state by the final control law: 
+​This control law will stabalize x and x-dot to the state of zero but in many systems we want to go to a state other than 0. We can generalize this control law for any desired state by the final control law:
 
 $$
 \begin{bmatrix}x_r-x\\ \:\:\:\dot{x_r}-\:\dot{x}\end{bmatrix}\begin{bmatrix}k_1\\ \:k_2\end{bmatrix}=k_1(x_r-x)+k_2(\dot{x_r}-\dot{x})
@@ -74,7 +74,7 @@ $$
 
 What we have now is effectively just a proportional derivative controller. What makes this different is that at each point in time our target velocity is not necessarily zero. This type of controller will as a result have much better performance following trajectories such as motion profiles and will not rely as much on feedforward control to get good transient performance like a pid controller would (though feedforward is always nice to have!).
 
-What makes this controller even more interesting is when you add extra states. If you were to use a Kalman or some other filter to observe the acceleration of your system you could have even more accurate trajectory following performance. This also goes the other way,  adding a state that is the integral of position will do the same as a PID controller.  
+What makes this controller even more interesting is when you add extra states. If you were to use a Kalman or some other filter to observe the acceleration of your system you could have even more accurate trajectory following performance. This also goes the other way,  adding a state that is the integral of position will do the same as a PID controller.
 
 
 
@@ -82,17 +82,17 @@ Full state feedback control allows us to control each relevant state of our syst
 
 ```java
 /**
-* Calculate state feedback for position and velocity of our system. 
+* Calculate state feedback for position and velocity of our system.
 */
 public double calculateStateFeedback(double targetPosition, double targetVelocity) {
 
     double positionError = targetPosition - robotPosition;
-    double velocityError = targetVelocity - robotVelocity; 
-    double u = (positionError * k1) + (velocityError * k2); 
-    return u; 
-    
-} 
+    double velocityError = targetVelocity - robotVelocity;
+    double u = (positionError * k1) + (velocityError * k2);
+    return u;
+
+}
 ```
 
-This type of controller will have much better trajectory tracking performance than pid as in addition to driving our robot to the target position, it is able to drive our robot at target velocity. In combination with motion profiling this is an incredibly powerful tool. You can even extend this method by adding additional states. Combined with feedforward control you will have an incredibly robust controller. 
+This type of controller will have much better trajectory tracking performance than pid as in addition to driving our robot to the target position, it is able to drive our robot at target velocity. In combination with motion profiling this is an incredibly powerful tool. You can even extend this method by adding additional states. Combined with feedforward control you will have an incredibly robust controller.
 

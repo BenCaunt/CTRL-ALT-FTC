@@ -13,5 +13,5 @@ PID Controller Implementation Tutorial #1
 {% endembed %}
 
 {% embed url="https://www.youtube.com/watch?t=2s&v=ayBnDBtcZdc" %}
-PID Tutorial #2 Angle Control 
+PID Tutorial #2 Angle Control
 {% endembed %}

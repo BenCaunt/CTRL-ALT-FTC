@@ -102,40 +102,40 @@ double motion_profile(max_acceleration, max_velocity, distance, elapsed_time) {
 
 ### Motion Profile Usage
 
-To use a motion profile, you must use some controller, such as a PID or Proportional Controller. 
+To use a motion profile, you must use some controller, such as a PID or Proportional Controller.
 
 ```java
 while (TrajectoryIsNotDone) {
 
-    double instantTargetPosition = motion_profile_position(max_acceleration, 
-                                                  max_velocity, 
-                                                  distance, 
+    double instantTargetPosition = motion_profile_position(max_acceleration,
+                                                  max_velocity,
+                                                  distance,
                                                    elapsed_time);
 
     double motorPower = (instantTargetPosition - motor.getPosition()) * Kp
 }
 ```
 
-You can also extend this further by using velocity/acceleration feedforward. 
+You can also extend this further by using velocity/acceleration feedforward.
 
 ```java
 while (TrajectoryIsNotDone) {
 
-    double x = motion_profile_position(max_acceleration, 
-                                                  max_velocity, 
-                                                  distance, 
+    double x = motion_profile_position(max_acceleration,
+                                                  max_velocity,
+                                                  distance,
                                                    elapsed_time);
-    double v = motion_profile_velo(max_acceleration, 
-                                                  max_velocity, 
-                                                  distance, 
+    double v = motion_profile_velo(max_acceleration,
+                                                  max_velocity,
+                                                  distance,
                                                    elapsed_time);
-                                                   
-    double a = motion_profile_accel(max_acceleration, 
-                                                  max_velocity, 
-                                                  distance, 
+
+    double a = motion_profile_accel(max_acceleration,
+                                                  max_velocity,
+                                                  distance,
                                                    elapsed_time);
-                                                   
-    double motorPower = (x - motor.getPosition()) * Kp + Kv * v + Ka * a; 
+
+    double motorPower = (x - motor.getPosition()) * Kp + Kv * v + Ka * a;
 }
 ```
 

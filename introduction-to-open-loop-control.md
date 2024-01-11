@@ -15,10 +15,10 @@ frontRight.setPower(1);
 backLeft.setPower(1);
 backRight.setPower(1);
 
-// Leave motors running for desired time 
+// Leave motors running for desired time
 sleep(500)
 
-// Stop motors after desired time 
+// Stop motors after desired time
 frontLeft.setPower(0);
 frontRight.setPower(0);
 backLeft.setPower(0);
@@ -28,7 +28,7 @@ backRight.setPower(0);
 Another example of open loop control is that of an intake which runs continuously:
 
 ```java
-// set intake power at max output 
+// set intake power at max output
 intakeMotor.setPower(1);
 ```
 

@@ -61,9 +61,9 @@ Rotating arms such as the one in the image below can be very easy to make, but c
 To compensate for the force of gravity, we take the cosine of our target angle relative to the ground, as shown in the following example.
 
 ```java
-double Kcos = SOME_VALUE_YOU_TUNE; 
+double Kcos = SOME_VALUE_YOU_TUNE;
 double reference = YOUR_TARGET_ANGLE;
-double power = Math.cos(reference) * Kcos; 
+double power = Math.cos(reference) * Kcos;
 ```
 
 We can then use the code above with a PID controller or another type of feedback controller. Using this will improve the reliability of the control system, as it will more accurately compensate gravity than a simple integrator. However, we recommend using both this and an integrator for optimal results.
@@ -97,13 +97,13 @@ $$
 In order to compensate for this, we can simply tune a constant power to reject the disturbance:
 
 ```java
-double Kg = // tune till the slide holds itself in place. 
+double Kg = // tune till the slide holds itself in place.
 
 /*
  * PID for general movement of the system
  * The feedforward removes the disturbance
  * This improves the responsiveness of the PID controller
  */
-double output = PID(reference, state) + Kg; 
+double output = PID(reference, state) + Kg;
 
 ```

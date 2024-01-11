@@ -8,7 +8,7 @@ description: >-
 
 ### BasicSystem
 
-Basic systems include, a single Estimator, a single Feedback controller, and a single Feedforward Controller. 
+Basic systems include, a single Estimator, a single Feedback controller, and a single Feedforward Controller.
 
 ```java
 BasicSystem(Estimator estimator, FeedbackController feedbackController,
@@ -16,22 +16,22 @@ BasicSystem(Estimator estimator, FeedbackController feedbackController,
 ```
 
 {% hint style="success" %}
-If you wish to not use any of these features that is okay! Just pass in the "No" or "Raw" versions of each interface! 
+If you wish to not use any of these features that is okay! Just pass in the "No" or "Raw" versions of each interface!
 {% endhint %}
 
 ### PositionVelocitySystem
 
-This is a slightly more complex system that attempts to control both position and velocity at the same time. This uses two feedback controllers, two estimators, and a single feedforward. 
+This is a slightly more complex system that attempts to control both position and velocity at the same time. This uses two feedback controllers, two estimators, and a single feedforward.
 
 ```
-public PositionVelocitySystem(Estimator positionEstimator, 
+public PositionVelocitySystem(Estimator positionEstimator,
                               Estimator velocityEstimator,
                               FeedforwardController feedforward,
                                FeedbackController positionFeedback,
                                FeedbackController velocityFeedback);
 ```
 
-### Example systems 
+### Example systems
 
 #### Basic Motor Control
 
@@ -43,9 +43,9 @@ DoubleSupplier motorPosition = new DoubleSupplier() {
 		return exampleMotor.getPosition();
 	}
 };
-BasicPID controller = new BasicPID(coefficients); 
+BasicPID controller = new BasicPID(coefficients);
 NoFeedforward feedforward = new NoFeedforward();
-RawValue noFilter = new RawValue(motorPosition); 
+RawValue noFilter = new RawValue(motorPosition);
 BasicSystem system = new BasicSystem(noFilter,controller,feedforward);
 
 while (true) {
@@ -56,9 +56,9 @@ while (true) {
 
 The above example demonstrates the basic syntax for systems.
 
-#### Full State with PID 
+#### Full State with PID
 
-Effectively Full State feedback and Full State Estimation using two PID's and two Kalman Filters. 
+Effectively Full State feedback and Full State Estimation using two PID's and two Kalman Filters.
 
 ```java
 double Q = 0.3;
@@ -82,12 +82,12 @@ DoubleSupplier motorVelocity = new DoubleSupplier() {
 };
 
 KalmanEstimator positionFilter = new KalmanEstimator(motorPosition,Q,R,N);
-KalmanEstimator velocityFilter = new KalmanEstimator(motorVelocity,Q,R,N); 
+KalmanEstimator velocityFilter = new KalmanEstimator(motorVelocity,Q,R,N);
 
 FeedforwardCoefficients coefficientsFF = new FeedforwardCoefficients(0.1,0.3,0.001);
 BasicFeedforward feedforward = new BasicFeedforward(coefficientsFF);
 
-PositionVelocitySystem system = 
+PositionVelocitySystem system =
 	new PositionVelocitySystem(positionFilter,
 	velocityFilter,feedforward,posControl,veloControl);
 
@@ -100,7 +100,7 @@ while (true) {
 
 #### Feedforward Only
 
-Sometimes we might not have a sensor available to us and as a result feedforward is our only option! 
+Sometimes we might not have a sensor available to us and as a result feedforward is our only option!
 
 ```java
 double Kv = 0.1;
@@ -112,9 +112,9 @@ Estimator none = new NoSensor();
 NoFeedback none2 = new NoFeedback();
 FeedforwardCoefficientsEx coefficientsEx = new FeedforwardCoefficientsEx(Kv,Ka,Ks,Kg,Kcos);
 FeedforwardEx controller = new FeedforwardEx(coefficientsEx);
-BasicSystem system = new BasicSystem(none,none2,controller); 
+BasicSystem system = new BasicSystem(none,none2,controller);
 
 while (true) {
-    double command = system.update(x,v,a); 
+    double command = system.update(x,v,a);
 }
 ```

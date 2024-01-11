@@ -20,7 +20,7 @@ public double angleWrap(double radians) {
 
     while (radians > Math.PI) {
         radians -= 2 * Math.PI;
-    }  
+    }
     while (radians < -Math.PI) {
         radians += 2 * Math.PI;
     }

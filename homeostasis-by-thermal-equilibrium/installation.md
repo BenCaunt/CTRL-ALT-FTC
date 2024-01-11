@@ -4,9 +4,9 @@ description: In this chapter we will detail how to install the homeostasis libra
 
 # Installation
 
-### Gradle 
+### Gradle
 
-Navigate to `build.dependencies.gradle` and find `repositories`. 
+Navigate to `build.dependencies.gradle` and find `repositories`.
 
 In repositories put the maven link to jitpack.io
 
