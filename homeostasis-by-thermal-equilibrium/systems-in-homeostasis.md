@@ -8,7 +8,7 @@ description: >-
 
 ### BasicSystem
 
-Basic systems include, a single Estimator, a single Feedback controller, and a single Feedforward Controller.&#x20;
+Basic systems include, a single Estimator, a single Feedback controller, and a single Feedforward Controller. 
 
 ```java
 BasicSystem(Estimator estimator, FeedbackController feedbackController,
@@ -16,12 +16,12 @@ BasicSystem(Estimator estimator, FeedbackController feedbackController,
 ```
 
 {% hint style="success" %}
-If you wish to not use any of these features that is okay! Just pass in the "No" or "Raw" versions of each interface!&#x20;
+If you wish to not use any of these features that is okay! Just pass in the "No" or "Raw" versions of each interface! 
 {% endhint %}
 
 ### PositionVelocitySystem
 
-This is a slightly more complex system that attempts to control both position and velocity at the same time. This uses two feedback controllers, two estimators, and a single feedforward.&#x20;
+This is a slightly more complex system that attempts to control both position and velocity at the same time. This uses two feedback controllers, two estimators, and a single feedforward. 
 
 ```
 public PositionVelocitySystem(Estimator positionEstimator, 
@@ -31,7 +31,7 @@ public PositionVelocitySystem(Estimator positionEstimator,
                                FeedbackController velocityFeedback);
 ```
 
-### Example systems&#x20;
+### Example systems 
 
 #### Basic Motor Control
 
@@ -56,9 +56,9 @@ while (true) {
 
 The above example demonstrates the basic syntax for systems.
 
-#### Full State with PID&#x20;
+#### Full State with PID 
 
-Effectively Full State feedback and Full State Estimation using two PID's and two Kalman Filters.&#x20;
+Effectively Full State feedback and Full State Estimation using two PID's and two Kalman Filters. 
 
 ```java
 double Q = 0.3;
@@ -100,7 +100,7 @@ while (true) {
 
 #### Feedforward Only
 
-Sometimes we might not have a sensor available to us and as a result feedforward is our only option!&#x20;
+Sometimes we might not have a sensor available to us and as a result feedforward is our only option! 
 
 ```java
 double Kv = 0.1;

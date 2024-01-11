@@ -6,11 +6,11 @@ description: Introduction to the Derivative term
 
 ## The Derivative Term
 
-You can think of the PID controller's derivative term like a car's suspension or another type of dampener. The derivative of a PID controller is just the current rate of change of the error. If you think back to your first algebra class, you probably remember a formula that looked something like the following to get the slope of a line:&#x20;
+You can think of the PID controller's derivative term like a car's suspension or another type of dampener. The derivative of a PID controller is just the current rate of change of the error. If you think back to your first algebra class, you probably remember a formula that looked something like the following to get the slope of a line: 
 
 ![](../.gitbook/assets/slope-formula.png)
 
-&#x20;The derivative of a PID controller effectively does the same thing. We calculate the current rate of change of the error by doing the following:
+ The derivative of a PID controller effectively does the same thing. We calculate the current rate of change of the error by doing the following:
 
 \
 **(error - last error) / delta time**
@@ -32,7 +32,7 @@ Last time we had a controller with only Proportional and Integral control. This 
 
 ![System response with Kp = 2, Kd = 0, Ki = 0.3](../.gitbook/assets/kp-2-ki-0.3-result.png)
 
-We can add derivative to this system to attempt to reduce these oscillations. &#x20;
+We can add derivative to this system to attempt to reduce these oscillations.  
 
 ![Full PID controller with Kp = 2, Ki = 0.3, Kd = 0.2](../.gitbook/assets/kp-2-ki-0.3-kd-0.2.png)
 
@@ -50,4 +50,4 @@ In the next chapter, we will look at different methods to tune a PID controller 
 
 ### Practice Exercises
 
-Now that we fully understand each of the three terms of a PID controller, implement the controller on a drivetrain or some other mechanism and try your best at tuning it. &#x20;
+Now that we fully understand each of the three terms of a PID controller, implement the controller on a drivetrain or some other mechanism and try your best at tuning it.  

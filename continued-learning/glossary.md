@@ -12,11 +12,11 @@ description: >-
 3. Feedback - a process where given a measurement and a desired state we calculate the best input to reach the state. A synonym for closed-loop control
 4. Feedforward - a process where given just a desired state we calculate the best input to reach the state. A synonym for open-loop control
 5. PID control - A type of feedback control with three main components. A proportional, an integral, and a derivative.
-6. Integral - the sum of a signal over time&#x20;
+6. Integral - the sum of a signal over time 
 7. Derivative - the rate of change of a singal
-8. Full State Feedback - a feedback control method that is basically just a bunch of proportional controllers strapped together. &#x20;
-9. State - where our system currently is,  usually a combination of position / velocity.&#x20;
+8. Full State Feedback - a feedback control method that is basically just a bunch of proportional controllers strapped together.  
+9. State - where our system currently is,  usually a combination of position / velocity. 
 10. Roadrunner - A library for First Tech Challenge that incorperates a ton of really powerful control techniques. It has built in localization (using drive encoders or dead wheels), trajectory generation, and trajectory following algorithms
-11. Path - a set of points that makes up where our robot should be in space. Usually traversed through by the robots current position.&#x20;
-12. Trajectory - a set of position and velocity points, usually indexed by the given time.&#x20;
-13. State machine - a way to code your robots that emulates asynchronous behavior but without the side effects.&#x20;
+11. Path - a set of points that makes up where our robot should be in space. Usually traversed through by the robots current position. 
+12. Trajectory - a set of position and velocity points, usually indexed by the given time. 
+13. State machine - a way to code your robots that emulates asynchronous behavior but without the side effects. 

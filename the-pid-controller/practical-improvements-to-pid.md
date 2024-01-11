@@ -8,20 +8,20 @@ description: >-
 
 ## Issues with the Traditional PID Controller
 
-The traditional PID implementation as seen in previous chapters has a few inherent issues. The two most common ones which we will discuss are that of integral windup and  derivative noise amplification.&#x20;
+The traditional PID implementation as seen in previous chapters has a few inherent issues. The two most common ones which we will discuss are that of integral windup and  derivative noise amplification. 
 
 Each one of these methods has a relatively basic solution which we will analyze as this chapter progresses.
 
-#### Basic problems and solutions&#x20;
+#### Basic problems and solutions 
 
 * Integral windup
   * Integral sum cap
   * Integral sum reset
-  * Stop integral sum when the output is being saturated.&#x20;
+  * Stop integral sum when the output is being saturated. 
 * Derivative noise amplification
   * Filter derivative input
 
-### Integral Windup and Mitigation Methods&#x20;
+### Integral Windup and Mitigation Methods 
 
 Integral windup is a phenomenon that occurs whenever the integral output saturates our system. Integral windup causes the system to remain traveling in the same direction for some time until the integral sum drops low enough for our system to regain control. Brian Douglas does a fantastic job of explaining the issue of Integral windup on the Matlab youtube channel [here](https://youtu.be/NVLXCwc8HzM?t=201). \
 \
@@ -41,12 +41,12 @@ if (integralSum < -integralSumLimit) {
 
 ```
 
-The code above effective sets hard limits on how big our integral sum can arrive at. For FTC motor control I recommend making it so that your integralSumLimit \* Ki  is around \~0.25. This is definitely up to preference and will need to be played around with a bit but it is enough to where it actually makes a difference in most systems but not too much that the system can become unstable.&#x20;
+The code above effective sets hard limits on how big our integral sum can arrive at. For FTC motor control I recommend making it so that your integralSumLimit \* Ki  is around \~0.25. This is definitely up to preference and will need to be played around with a bit but it is enough to where it actually makes a difference in most systems but not too much that the system can become unstable. 
 
-Another thing that is good practice to do for many systems is to reset our integral sum whenever the reference changes. &#x20;
+Another thing that is good practice to do for many systems is to reset our integral sum whenever the reference changes.  
 
 {% hint style="warning" %}
-Integral reset is a technique that needs to be evaluated on a system-by-system basis. It will inherently play better with some systems than others. &#x20;
+Integral reset is a technique that needs to be evaluated on a system-by-system basis. It will inherently play better with some systems than others.  
 {% endhint %}
 
 Here is how to implement the integral reset in software:
@@ -58,7 +58,7 @@ if (reference != lastReference) {
 }
 ```
 
-For many systems such as a drivetrain, doing this allows you to more easily change directions without waiting for the integral sum to change directions. &#x20;
+For many systems such as a drivetrain, doing this allows you to more easily change directions without waiting for the integral sum to change directions.  
 
 ### Derivative Noise Mitigation Methods
 
@@ -70,7 +70,7 @@ If we recall from the chapter on the derivative term of a PID controller we know
 
 In the above graph we can see how the low pass filter is able to remove significant amounts of the noise of our measurement but how does it do this?
 
-The low pass filter takes the following form:&#x20;
+The low pass filter takes the following form: 
 
 $$
 x_c=ax_p+(1-a)x_m
@@ -83,9 +83,9 @@ Where:
 **Xm** = current measurement\
 **a** = measurement gain (0 < a < 1)
 
-This filter is tuned by adjusting the gain **a**. Small values of **a** allow each new measurement to have more influence on the estimate than small values of **a**. This filter works because we are calculating the **previous estimate \* the percentage + the measurement \* the complement of the percentage** **(1 - a)** which results in a whole estimate being created. This process iterates, updating the estimate at each timestep. &#x20;
+This filter is tuned by adjusting the gain **a**. Small values of **a** allow each new measurement to have more influence on the estimate than small values of **a**. This filter works because we are calculating the **previous estimate \* the percentage + the measurement \* the complement of the percentage** **(1 - a)** which results in a whole estimate being created. This process iterates, updating the estimate at each timestep.  
 
-#### Low Pass Filter Implementation&#x20;
+#### Low Pass Filter Implementation 
 
 The low pass filter can be implemented in software similar to the following example:
 
@@ -177,4 +177,4 @@ while (setPointIsNotReached) {
 }
 ```
 
-Now we have fixed any of the issues that can cause issues with your control system. We have fixed the issue of derivative amplifying noise in the system and the issue of integral windup. Now your system will likely be more stable and there is significantly less risk of external disturbances or poor sensor quality disrupting your robot on the field. &#x20;
+Now we have fixed any of the issues that can cause issues with your control system. We have fixed the issue of derivative amplifying noise in the system and the issue of integral windup. Now your system will likely be more stable and there is significantly less risk of external disturbances or poor sensor quality disrupting your robot on the field.  

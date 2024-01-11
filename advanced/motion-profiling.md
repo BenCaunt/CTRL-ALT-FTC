@@ -102,7 +102,7 @@ double motion_profile(max_acceleration, max_velocity, distance, elapsed_time) {
 
 ### Motion Profile Usage
 
-To use a motion profile, you must use some controller, such as a PID or Proportional Controller.&#x20;
+To use a motion profile, you must use some controller, such as a PID or Proportional Controller. 
 
 ```java
 while (TrajectoryIsNotDone) {
@@ -116,7 +116,7 @@ while (TrajectoryIsNotDone) {
 }
 ```
 
-You can also extend this further by using velocity/acceleration feedforward.&#x20;
+You can also extend this further by using velocity/acceleration feedforward. 
 
 ```java
 while (TrajectoryIsNotDone) {
