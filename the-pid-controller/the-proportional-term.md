@@ -14,7 +14,7 @@ The recommended way to begin tuning with PID is to set I and D to 0 until you ge
 
 ![PID Controller with only Kp active](../.gitbook/assets/screen-shot-2021-04-09-at-12.24.05-pm.png)
 
-In the model above we have our familiar PID controller but with our integral and our derivative disabled (set to 0).  This means that only our proportional control is active.  With Kp set to 1 this system should act Identically to the proportional controller in the [Introduction to Closed Loop Control ](https://www.ctrlaltftc.com/introduction-to-closed-loop-control)chapter.&#x20;
+In the model above we have our familiar PID controller but with our integral and our derivative disabled (set to 0). This means that only our proportional control is active. With Kp set to 1 this system should act Identically to the proportional controller in the [Introduction to Closed Loop Control ](https://www.ctrlaltftc.com/introduction-to-closed-loop-control)chapter.&#x20;
 
 Here we can see the response from this system:
 
@@ -26,11 +26,11 @@ The red line is the response of the system over time (such as the encoder positi
 
 As we can see from this example, we have a bit of steady-state error. The presence of steady-state error means that our controller is not tracking the reference well. We can likely combat this by increasing Kp.&#x20;
 
-As we can see the performance of our system is improved. Do notice that we are **saturating** our system slightly. The aforementioned is because our system can only actually go up to **1** power in the FTC SDK. We are using more than this is not possible for our system. This issue is even more evident at higher gains.  &#x20;
+As we can see the performance of our system is improved. Do notice that we are **saturating** our system slightly. The aforementioned is because our system can only actually go up to **1** power in the FTC SDK. We are using more than this is not possible for our system. This issue is even more evident at higher gains. &#x20;
 
 ![System response with Kp = 2, Kd = 0, Ki = 0](<../.gitbook/assets/kp-2 (1).png>)
 
-We can see here that the steady state error is slightly reduced but is still there.  We will resolve this in the next chapter.&#x20;
+We can see here that the steady state error is slightly reduced but is still there. We will resolve this in the next chapter.&#x20;
 
 #### Practice Exercises
 

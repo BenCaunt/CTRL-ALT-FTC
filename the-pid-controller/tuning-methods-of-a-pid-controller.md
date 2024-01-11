@@ -25,7 +25,7 @@ Manning PID controllers manually require a little bit of experience, but this kn
 
 ### Finding reasonable starting values for Kp
 
-Finding a good value for Kp to begin with can be very helpful.  To do this you must know the maximum output of your system and the units that you are using to measure your system. &#x20;
+Finding a good value for Kp to begin with can be very helpful. To do this you must know the maximum output of your system and the units that you are using to measure your system. &#x20;
 
 #### Effect of each term on the controller's performance
 

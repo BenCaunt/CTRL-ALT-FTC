@@ -69,7 +69,7 @@ $$\pmb{R} = \begin{bmatrix} c \end{bmatrix} $$
 The innovation is basically describing the error between our prediction and the sensor reading. When we were dealing with univariate systems, this was pretty simple. However, we now must note that our sensor only returns the position, and our prediction has both position and velocity. In other words, we can't just subtract. We need to multiply our prediction by a matrix, so we can find the innovation:
 
 $$\pmb{y} = \pmb{z} - \pmb{H}\pmb{x}$$
-Note that $\pmb{z}$ is 1x1 (because the sensor only measures position), so $\pmb{H}$ must be 1x2.  To find the innovation, we need to void the velocity because the sensor doesn't measure it. Thus, we set $\pmb{H}$ as 
+Note that $\pmb{z}$ is 1x1 (because the sensor only measures position), so $\pmb{H}$ must be 1x2. To find the innovation, we need to void the velocity because the sensor doesn't measure it. Thus, we set $\pmb{H}$ as 
 $$ \pmb{H} = \begin{bmatrix} 1 & 0 \end{bmatrix}$$
 
 

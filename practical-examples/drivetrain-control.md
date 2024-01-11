@@ -8,12 +8,12 @@ description: >-
 
 ## Why is Drivetrain Control Hard?
 
-In FTC we often want to drive our robot to a desired x, y, and angle position on the field.  This requires two equally important things:
+In FTC we often want to drive our robot to a desired x, y, and angle position on the field. This requires two equally important things:
 
 * A way to measure your robots position
 * A way to move your robot to a desired position&#x20;
 
-In recent years, the idea of odometry has become increasingly popular in First Tech Challenge. Odometry simply means that we are using sensors to observe the position of your robots drive train.  The most common method of odometry in FTC is using encoders either on the drive wheels of your robot or with seperate sprung wheels known as [dead wheels.  ](https://gm0.org/en/latest/docs/robot-design/dead-wheels.html)There exists several popular libraries for doing the position estimation math but the two that we recommend are the three wheel localizer in the [Roadrunner quick start](https://github.com/acmerobotics/road-runner-quickstart) and [HolonomicOdometry](https://github.com/FTCLib/FTCLib/blob/master/core/src/main/java/com/arcrobotics/ftclib/kinematics/HolonomicOdometry.java) in FTCLib.&#x20;
+In recent years, the idea of odometry has become increasingly popular in First Tech Challenge. Odometry simply means that we are using sensors to observe the position of your robots drive train. The most common method of odometry in FTC is using encoders either on the drive wheels of your robot or with seperate sprung wheels known as [dead wheels. ](https://gm0.org/en/latest/docs/robot-design/dead-wheels.html)There exists several popular libraries for doing the position estimation math but the two that we recommend are the three wheel localizer in the [Roadrunner quick start](https://github.com/acmerobotics/road-runner-quickstart) and [HolonomicOdometry](https://github.com/FTCLib/FTCLib/blob/master/core/src/main/java/com/arcrobotics/ftclib/kinematics/HolonomicOdometry.java) in FTCLib.&#x20;
 
 Once you have a method of robot localization picked out we can begin deciding how we want to control our robot. &#x20;
 
@@ -21,7 +21,7 @@ Traditionally in FTC, teams used their drive encoders to drive straight some dis
 
 ## Mecanum Drivetrain Controller&#x20;
 
-To start with controlling a mecanum drivetrain we first need for figure out how to control each robot relative axis.  A quick look at the [game manual 0 mecanum programming](https://gm0.org/en/latest/docs/software/mecanum-drive.html) guide details that given an x,y, and theta control input we can control a mecanum robot like the following:&#x20;
+To start with controlling a mecanum drivetrain we first need for figure out how to control each robot relative axis. A quick look at the [game manual 0 mecanum programming](https://gm0.org/en/latest/docs/software/mecanum-drive.html) guide details that given an x,y, and theta control input we can control a mecanum robot like the following:&#x20;
 
 ```java
 // x, y, theta input mixing
@@ -66,7 +66,7 @@ backRightMotor.setPower(x_rotated + y_rotated - t);
 If one was to use gamepad joystick inputs for x,y,t they can use this code above to accomplish field relative driving!
 {% endhint %}
 
-We are at the point now that given any input, x,y,t it will push our robot in the direction regardless of the angle, we can even combine multiple inputs such as moving along diagonal paths while rotating.  We have reached a state where our system is now fully actuated and nearly completely linearized.  This means from this point on our system is now relatively trivial to control.&#x20;
+We are at the point now that given any input, x,y,t it will push our robot in the direction regardless of the angle, we can even combine multiple inputs such as moving along diagonal paths while rotating. We have reached a state where our system is now fully actuated and nearly completely linearized. This means from this point on our system is now relatively trivial to control.&#x20;
 
 For getting the values of x,y, and t we can simply use a linear controller such as the full state feedback or PID controllers that we developed in previous chapters&#x20;
 
@@ -95,7 +95,7 @@ while (loopIsActive) {
 ```
 
 {% hint style="danger" %}
-For thetaControl you will need to consult the [Dealing with Angles](https://www.ctrlaltftc.com/controlling-heading) chapter for changing the way that the angle error calculation is performed.  This will ensure your robot is always turning the shortest distance to the desired angle
+For thetaControl you will need to consult the [Dealing with Angles](https://www.ctrlaltftc.com/controlling-heading) chapter for changing the way that the angle error calculation is performed. This will ensure your robot is always turning the shortest distance to the desired angle
 {% endhint %}
 
 {% hint style="success" %}
@@ -108,9 +108,9 @@ Disturbance rejection qualities of similar control technique
 
 ## Differential Drivetrain Controller
 
-Differential drive robots such as 4 wheel drive, 6 wheel drive, and tank tread robots are unfortunately a beast to control.  This is because of one unfortunate quality that differential drive robots possess: They are underactuated systems. &#x20;
+Differential drive robots such as 4 wheel drive, 6 wheel drive, and tank tread robots are unfortunately a beast to control. This is because of one unfortunate quality that differential drive robots possess: They are underactuated systems. &#x20;
 
-In control theory, an underactuated system is defined as a system that has fewer actuators than they do outputs to control.  Intuitively it makes sense as a fully actuated system such as a mecanum drive can move towards the desired x,y position while turning towards the desired angle.  A differential drive robot cannot do this.  Instead it needs to first turn towards the target x,y position, move towards the target position and then once at the x,y position turn to the desired angle. &#x20;
+In control theory, an underactuated system is defined as a system that has fewer actuators than they do outputs to control. Intuitively it makes sense as a fully actuated system such as a mecanum drive can move towards the desired x,y position while turning towards the desired angle. A differential drive robot cannot do this. Instead it needs to first turn towards the target x,y position, move towards the target position and then once at the x,y position turn to the desired angle. &#x20;
 
 ### Naive Differential Drive Controller&#x20;
 
@@ -123,7 +123,7 @@ This controller requires feedback on three seperate values
 * The reference angle&#x20;
 
 {% hint style="success" %}
-Remember: The angle to the target point is the angle between the robot and the target x,y position.  The reference angle is the angle we want the robot to be facing whenever it finishes the movement.&#x20;
+Remember: The angle to the target point is the angle between the robot and the target x,y position. The reference angle is the angle we want the robot to be facing whenever it finishes the movement.&#x20;
 {% endhint %}
 
 Using the following will drive the robot at a power proportional to the distance between the robot position and the target position&#x20;
@@ -142,9 +142,9 @@ while (loopIsActive) {
 }
 ```
 
-&#x20;Now we have code that given the robots position and a target position will drive proportional to its remaining distance.  We still need to make the robot turn towards the target point otherwise it will continue on in whatever direction the robot started in forever.
+&#x20;Now we have code that given the robots position and a target position will drive proportional to its remaining distance. We still need to make the robot turn towards the target point otherwise it will continue on in whatever direction the robot started in forever.
 
-For this, we first need to find a way to calculate the angle between the robot and the target.   Fortunately for us, there is a built in java method to accomplish this known as atan2.  Atan2 is a special trigomentric function that given arguments y,x returns the angle from x,y to the origin.  Since we are getting the angle between two points we use the error between the robot x,y and the target x,y as follows:&#x20;
+For this, we first need to find a way to calculate the angle between the robot and the target. Fortunately for us, there is a built in java method to accomplish this known as atan2. Atan2 is a special trigomentric function that given arguments y,x returns the angle from x,y to the origin. Since we are getting the angle between two points we use the error between the robot x,y and the target x,y as follows:&#x20;
 
 ```java
 double xError = targetX - robotX;
@@ -215,11 +215,11 @@ $$
 p_f=d*k_p*\cos{\theta_e}
 $$
 
-​where the power in the forward direction is equal to Kp times the distance as we had before but then an addition cos term is added.  \*Theta\_error will be domain limited to -pi/2 to pi/2\*
+​where the power in the forward direction is equal to Kp times the distance as we had before but then an addition cos term is added. \*Theta\_error will be domain limited to -pi/2 to pi/2\*
 
 ![](../.gitbook/assets/image.png)
 
-Looking at the graph of cos shows an interesting curve,  whenever our angle error is high, the value of this cos approaches zero, but as the angle error approaches zero, the cos term goes to 1.   This creates the effect of only allowing our robot to quickly move in the forward direction when it is on target. &#x20;
+Looking at the graph of cos shows an interesting curve,  whenever our angle error is high, the value of this cos approaches zero, but as the angle error approaches zero, the cos term goes to 1. This creates the effect of only allowing our robot to quickly move in the forward direction when it is on target. &#x20;
 
 ```java
 distanceController = new PID();

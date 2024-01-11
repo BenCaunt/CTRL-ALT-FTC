@@ -52,7 +52,7 @@ For A's value, we first need to understand a bit about state-space representatio
 
 ![Explaination for A's value](../.gitbook/assets/fix-typo-aaaa.png)
 
-Now we have our A 'Matrix' which is simply a scalar value of 1.  In addition to this, we now understand how the initial prediction of our system's state was derived. &#x20;
+Now we have our A 'Matrix' which is simply a scalar value of 1. In addition to this, we now understand how the initial prediction of our system's state was derived. &#x20;
 
 Next, we need to find **H**.
 
@@ -72,7 +72,7 @@ One may have now realized that each of these 'matrices' is just a single scalar 
 
 ## Putting it all together
 
-Finally, we have independently derived each of the equations we need for our SISO Kalman filter.  Now we can put them together and then we will be able to effectively implement our filter in software.  Taking each simplified part and putting them into a computable procedure will yield:&#x20;
+Finally, we have independently derived each of the equations we need for our SISO Kalman filter. Now we can put them together and then we will be able to effectively implement our filter in software. Taking each simplified part and putting them into a computable procedure will yield:&#x20;
 
 ![Procedure for our SISO Kalman Filter](../.gitbook/assets/final-kalman-filter-derivation.png)
 
@@ -122,4 +122,4 @@ Here you can find a Jupyter notebook for a Kalman filter that fuses a motion pro
 You can also use multiple sensors with the Kalman Filter! For each loop, you can first run a prediction and then for each additional sensor can have an update loop. In some cases, however, you'd be better off using a weighted average of all the sensor readings. 
 ## Limitations of our work
 
-For simplicity's sake, we made the assumption that the majority of systems we will be dealing with in FTC are single-input, single-output systems.  Unfortunately, this is not guaranteed and you may have to end up with a more complicated filter where you must use matrices instead of scalar values.  For that, you will need to use a library such as [EJML ](http://ejml.org/wiki/index.php?title=Main\_Page)and remove lots of the simplifications that we made.&#x20;
+For simplicity's sake, we made the assumption that the majority of systems we will be dealing with in FTC are single-input, single-output systems. Unfortunately, this is not guaranteed and you may have to end up with a more complicated filter where you must use matrices instead of scalar values. For that, you will need to use a library such as [EJML ](http://ejml.org/wiki/index.php?title=Main\_Page)and remove lots of the simplifications that we made.&#x20;

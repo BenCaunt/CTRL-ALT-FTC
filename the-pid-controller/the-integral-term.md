@@ -47,7 +47,7 @@ This integral sum is then added to the output of our controller which is then se
 
 ## Effect of Integration in PID&#x20;
 
-Integration is useful because it forces our error to be pushed toward 0 over time.  This allows our system to be much more robust against disturbances such as gravity, friction, and backlash.
+Integration is useful because it forces our error to be pushed toward 0 over time. This allows our system to be much more robust against disturbances such as gravity, friction, and backlash.
 
 ![Our PID controller with Kp = 2, Ki = 0.3](../.gitbook/assets/kp-2-ki-0.3-model.png)
 

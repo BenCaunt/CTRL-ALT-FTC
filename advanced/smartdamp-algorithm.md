@@ -4,9 +4,9 @@ description: Our custom approach to PID tuning
 
 # SMARTDAMP Algorithm
 
-More content soon.  TLDR: if you have the kV and kA feedforward values.  we can use that as a model for our system. &#x20;
+More content soon. TLDR: if you have the kV and kA feedforward values. we can use that as a model for our system. &#x20;
 
-Then, we solve for the poles of the system.  After some math, we arrive at the following:&#x20;
+Then, we solve for the poles of the system. After some math, we arrive at the following:&#x20;
 
 $$
 K_D=2\sqrt{K_aK_P}-K_v
@@ -26,7 +26,7 @@ Otherwise, Kd will be negative and you get a scary non-minimum phase system. &#x
 
 ### Specifying percent overshoot
 
-A Critically damped system is not necessarily the fastest possible response, sometimes you are okay with a bit of overshoot.  This modified version of the SMARTDAMP algorithm allows you to specify a percent overshoot in addition to your proportional gain to give you your optimal choice for Kd
+A Critically damped system is not necessarily the fastest possible response, sometimes you are okay with a bit of overshoot. This modified version of the SMARTDAMP algorithm allows you to specify a percent overshoot in addition to your proportional gain to give you your optimal choice for Kd
 
 $$
 K_d = 2 \zeta \sqrt{K_a K_p} - K_v

@@ -38,7 +38,7 @@ while (true) {
 }
 ```
 
-This Kalman Filter implementation has three parameters to tune.  First **Q** is the sensor covariance, or how much we trust the sensor, low values for the sensor means that we believe the sensor will have lots of noise and vice versa.  **R** is the model covariance or how much we trust the linear regression.  **N** is the number of elements back we perform the regression on. we find that for most cases between 3 and 5 works best.&#x20;
+This Kalman Filter implementation has three parameters to tune. First **Q** is the sensor covariance, or how much we trust the sensor, low values for the sensor means that we believe the sensor will have lots of noise and vice versa. **R** is the model covariance or how much we trust the linear regression. **N** is the number of elements back we perform the regression on. we find that for most cases between 3 and 5 works best.&#x20;
 
 ![Kalman Filter smoothing real velocity data from encoder. ](../.gitbook/assets/KalmanFilterExample.png)
 
@@ -48,7 +48,7 @@ If both the Kalman FIlter and the Low Pass filter reduce noise, and the Low Pass
 
 The answer: Phase Lag
 
-The low pass filter removes high frequency signals from your measurements.  While this does remove lots of noise from the signal (as noise is generally high frequency), it also slows down the signals response.  The Kalman Filter does not have nearly as much phase lag since it works by projecting it's state forward instead of focusing soley on previous measurements. &#x20;
+The low pass filter removes high frequency signals from your measurements. While this does remove lots of noise from the signal (as noise is generally high frequency), it also slows down the signals response. The Kalman Filter does not have nearly as much phase lag since it works by projecting it's state forward instead of focusing soley on previous measurements. &#x20;
 
 ![Kalman Filter vs Low Pass Filter Comparison](<../.gitbook/assets/Kalman Filter vs Low Pass filter.png>)
 

@@ -26,5 +26,5 @@ Currently homestasis provides the following features:
     * A combination of (2) Estimators (one for position, one for velocity), (2) feedback controllers (one for position, one for velocity) and (1) Feedforward.&#x20;
 
 {% hint style="danger" %}
-Currently homeostasis is in Beta and while in many cases it's algorithms have been confirmed to work very well, in some edge cases they could still potentially fail.  Please let us know or create a github issue / PR if you encounter any issues at: [https://github.com/Thermal-Equilibrium/homeostasis-FTC](https://github.com/Thermal-Equilibrium/homeostasis-FTC)
+Currently homeostasis is in Beta and while in many cases it's algorithms have been confirmed to work very well, in some edge cases they could still potentially fail. Please let us know or create a github issue / PR if you encounter any issues at: [https://github.com/Thermal-Equilibrium/homeostasis-FTC](https://github.com/Thermal-Equilibrium/homeostasis-FTC)
 {% endhint %}
