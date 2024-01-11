@@ -16,7 +16,7 @@ description: >-
 7. Derivative - the rate of change of a singal
 8. Full State Feedback - a feedback control method that is basically just a bunch of proportional controllers strapped together.
 9. State - where our system currently is,  usually a combination of position / velocity.
-10. Roadrunner - A library for First Tech Challenge that incorperates a ton of really powerful control techniques. It has built in localization (using drive encoders or dead wheels), trajectory generation, and trajectory following algorithms
+10. RoadRunner - A library for *FIRST* Tech Challenge that incorperates a ton of really powerful control techniques. It has built in localization (using drive encoders or dead wheels), trajectory generation, and trajectory following algorithms
 11. Path - a set of points that makes up where our robot should be in space. Usually traversed through by the robots current position.
 12. Trajectory - a set of position and velocity points, usually indexed by the given time.
 13. State machine - a way to code your robots that emulates asynchronous behavior but without the side effects.

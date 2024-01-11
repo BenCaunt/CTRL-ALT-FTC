@@ -1,6 +1,6 @@
 ---
 description: >-
-  Drivetrains are arguably the most important part of a first tech challenge
+  Drivetrains are arguably the most important part of a *FIRST* Tech Challenge
   autonomous and are crucial to get correct.
 ---
 
@@ -13,7 +13,7 @@ In FTC we often want to drive our robot to a desired x, y, and angle position on
 * A way to measure your robots position
 * A way to move your robot to a desired position
 
-In recent years, the idea of odometry has become increasingly popular in First Tech Challenge. Odometry simply means that we are using sensors to observe the position of your robots drive train. The most common method of odometry in FTC is using encoders either on the drive wheels of your robot or with seperate sprung wheels known as [dead wheels. ](https://gm0.org/en/latest/docs/robot-design/dead-wheels.html)There exists several popular libraries for doing the position estimation math but the two that we recommend are the three wheel localizer in the [Roadrunner quick start](https://github.com/acmerobotics/road-runner-quickstart) and [HolonomicOdometry](https://github.com/FTCLib/FTCLib/blob/master/core/src/main/java/com/arcrobotics/ftclib/kinematics/HolonomicOdometry.java) in FTCLib.
+In recent years, the idea of odometry has become increasingly popular in *FIRST* Tech Challenge. Odometry simply means that we are using sensors to observe the position of your robots drive train. The most common method of odometry in FTC is using encoders either on the drive wheels of your robot or with seperate sprung wheels known as [dead wheels. ](https://gm0.org/en/latest/docs/robot-design/dead-wheels.html)There exists several popular libraries for doing the position estimation math but the two that we recommend are the three wheel localizer in the [Roadrunner quick start](https://github.com/acmerobotics/road-runner-quickstart) and [HolonomicOdometry](https://github.com/FTCLib/FTCLib/blob/master/core/src/main/java/com/arcrobotics/ftclib/kinematics/HolonomicOdometry.java) in FTCLib.
 
 Once you have a method of robot localization picked out we can begin deciding how we want to control our robot.
 
