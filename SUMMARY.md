@@ -1,20 +1,20 @@
 # Table of contents
 
 * [CTRL ALT FTC](README.md)
-* [Why Control Theory is a Must Have](introduction-to-controls.md)
+* [Why Control Theory is A Must Have](introduction-to-controls.md)
 * [Introduction to Open Loop Control](introduction-to-open-loop-control.md)
 * [Introduction to Closed Loop Control](introduction-to-closed-loop-control.md)
 * [The PID Controller](the-pid-controller/README.md)
   * [The Proportional Term](the-pid-controller/the-proportional-term.md)
   * [The Integral Term](the-pid-controller/the-integral-term.md)
   * [The Derivative Term](the-pid-controller/the-derivative-term.md)
-  * [Tuning Methods of a PID Controller](the-pid-controller/tuning-methods-of-a-pid-controller.md)
+  * [Tuning Methods of A PID Controller](the-pid-controller/tuning-methods-of-a-pid-controller.md)
   * [Improvements to the PID Controller](the-pid-controller/practical-improvements-to-pid.md)
 * [Feedforward Control](feedforward-control.md)
 
 ## Advanced
 
-* [Full State feedback](advanced/full-state-feedback.md)
+* [Full State Feedback](advanced/full-state-feedback.md)
 * [The Kalman Filter](advanced/the-kalman-filter.md)
 * [Gain Scheduling](advanced/gain-scheduling.md)
 * [Motion Profiling](advanced/motion-profiling.md)

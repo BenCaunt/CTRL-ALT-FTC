@@ -1,6 +1,6 @@
 ---
 description: >-
-  *FIRST* Tech Challenge Team #19376 Thermal Equilibrium presents CTRL ALT FTC,
+  *FIRST* Tech Challenge Team #19376 Thermal Equilibrium presents CTRL ALT FTC —
   the most comprehensive Control Theory guide for *FIRST* Tech Challenge Teams.
 ---
 
