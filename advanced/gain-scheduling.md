@@ -1,29 +1,29 @@
 ---
 description: >-
-  Some systems may fail with a simple linear controller such as PID, let's fix
-  that!
+  Some systems may fail with a simple linear controller such as PID.
+  Let's fix that!
 ---
 
 # Gain Scheduling
 
 ### Why Gain Scheduling?
 
-Controllers like PID and Full State Feedback are inherently Linear. They compose of simple operations such as multiplication, subtraction, integration, and derivative calculation. This means that the controllers are easy to design and understand but unfortunately we live in the real world. In the real world, there is almost **never** such a thing as a linear system. We are generally able to assume that our system is linear **enough** but sometimes this simply isn't true. This is where gain scheduling comes into play.
+Controllers like PID and Full State Feedback are inherently linear. They compose of simple operations such as multiplication, subtraction, integration, and derivative calculation. This means that the controllers are easy to design and understand. Unfortunately, we live in the real world. In the real world, there is almost **never** such a thing as a linear system. We are generally able to assume that our system is linear **enough**, but sometimes, this simply isn't true. This is where gain scheduling comes into play.
 
 ### What is Gain Scheduling?
 
-Gain scheduling is the idea where we modify our controller parameters relative to where our system is in space. Imagine a rotating arm on your robot. You begin by tuning your controller to stabilize in an up write position such as this:
+Gain scheduling is the idea where we modify our controller parameters relative to where our system is in space. Imagine a rotating arm on your robot. You begin by tuning your controller to stabilize in an upright position such as this:
 
  ![](<../.gitbook/assets/Untitled drawing (5) (1).png>)
 
-You are happy with the performance of having the arm swing up to the vertical position so you proceed to test it in a horizontal position:
+You are happy with the performance of having the arm swing up to the vertical position, so you proceed to test it in a horizontal position:
 
 ![](<../.gitbook/assets/Untitled drawing (6).png>)
 
-You find that after requesting your arm to move to 0° that it ends up settling below your target angle. Initially you are confused as it worked perfectly for the 90° setpoint but then you remembered that your system is not linear!  As a result of your system not being linear, the linear controller you tuned for one setpoint may not cover the dynamics of the entire **operating region**.
+You find that after requesting your arm to move to 0°, it ends up settling below your target angle. Initially, you are confused, as it worked perfectly for the 90° setpoint. But then, you remembered that your system is not linear! As a result of your system being nonlinear, the linear controller you tuned for one setpoint may not cover the dynamics of the entire **operating region**.
 
 {% hint style="info" %}
-The **Operating Region** of a system is defined as the space in which the system operates. If you only operate your system in a small region, it is more likely your linear controller will be adequate.
+ **Operating Region**: the space in which the system operates. If you only operate your system in a small region, it is more likely that a linear controller will be adequate.
 {% endhint %}
 
 A solution to this problem and the inherent concept of gain scheduling is that we can change our controller coefficients depending on where our system is in the operating region.
@@ -31,7 +31,7 @@ A solution to this problem and the inherent concept of gain scheduling is that w
 Let's say that this is our current code:
 
 ```java
-// imaginary PID controller and coefficients objects
+// Imaginary PID controller and coefficient objects
 PIDCoefficients for90Degrees = new PIDCoefficients();
 PIDController controller = new PID(for90Degrees);
 
@@ -44,9 +44,9 @@ while (loopIsRunning) {
 }
 ```
 
-The code sample above has its PID coefficients tuned to operate at the 90° range. As we saw with the previous example though it fails whenever we go to 0°.
+The code sample above has its PID coefficients tuned to operate at the 90° range. As we saw with the previous example, it fails whenever we go to 0°.
 
-One approach we can take is to split our operating region into two halves, say in the middle at 45°. Then we will use one set of coefficients above 45° and one set below.
+One approach we can take is to split our operating region into two halves — suppose, in the middle, at 45°. Then, we will use one set of coefficients above 45° and one set below.
 
 ```java
 // imaginary PID controller and coefficients objects
@@ -67,13 +67,13 @@ while (loopIsRunning) {
 }
 ```
 
-This approach works well but doesn't necessarily scale the best, say if you had 10 different operating regions that means you would have to create an if - statement for each one. That would get messy very quickly. In addition,  setting your target angle to 45° could theoretically have a bit of extra oscillation as it switches the gains every time it passes over in a single step.
+This approach works well but doesn't necessarily scale the best. If you had 10 different operating regions, that means you would have to create an if/else statement for each one. That would get messy very quickly. In addition, setting your target angle to 45° could have a bit of extra oscillation as it switches gains every time it passes over the switching point.
 
 An approach to improve this is to use interpolation.
 
 A really simple way to accomplish this is to use the FTCLib InterpLUT [(Interpolated Look Up Table)](https://docs.ftclib.org/ftclib/v/v1.2.0/features/util#interplut-interpolated-look-up-table).
 
-An interpolated look-up value will take a key (the current angle) and then give you an estimate of what our PID coefficients should be at the given point. It does this by allowing us to put in a few known values and then it will generate a continuous function to go between them.
+An interpolated look-up table will take a key (the current angle) and then give you an estimate of what our PID coefficients should be at the given point. It does this by allowing us to put in a few known values, and then it will generate a continuous function to go between them.
 
 ```java
 // look up tables for PID coefficients
