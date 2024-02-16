@@ -6,75 +6,75 @@ description: >-
 
 # The Kalman Filter
 
-## What is a Kalman Filter?
+## Why Kalman Filter?
 
 A Kalman filter at the highest level is an algorithm that optimally estimates any given state of a system, given a model of how the system changes over time and knowing a set of sensor measurements. We use a Kalman filter whenever we have doubts about the quality of our sensors, and we require more reliable measurements to control our system with the performance that we desire.
+
+Imagine trying to move your robot from one point to another. There are two general ways you can approach this. One way would be to model a path that should theoretically take your robot to the point (for example, a motion profile). The other would be to move your robot until a sensor tells you you’ve gotten to the point. Both of these approaches have drawbacks: a modeled path will never be perfect as there are always factors you can’t account for, and a sensor may have drift and/or unreliable measurements. The magic of the Kalman filter is that it combines these methods, allowing for a lessening of the impacts of these drawbacks.
+
+The Kalman filter uses the robot’s current state (ex: position, velocity) to predict where it will be in the future. This prediction can vary in complexity, from comprehensive models with many variables to much simpler models. Then, when a new sensor measurement comes in, it updates this prediction. By blending the predictions and measurements you obtain a more accurate estimate than you could get from just the predictions or the measurements alone.
 
 ![LR GYRO + Open Odo + Kalman Filter for Angle Estimation](../.gitbook/assets/optimal-sensor-estimation.png)
 
 ## How does the Kalman Filter work?
 
-One common theme in control theory is feedback; feedback can also be used in the processing of sensor measurements and with feedback is where the Kalman filter gets it's magic.
+A quick disclaimer: this page is intended to build enough intuition about the Kalman filter to allow you to implement a Kalman filter for FTC applications yourself. As such, many simplications have been taken and this explanation is by no means mathematically rigorous.
 
-First, the Kalman filter makes an initial estimate using the following equation:
+Now, let’s start with how the Kalman Filter keeps track of the variables we want it to estimate. For a given variable, such as a robot’s angle, we have a value that is associated with that variable (ex: $$15$$ degrees). However, in addition we also want to know how much uncertainty exists in that variable. The way the Kalman filter assigns uncertainty to a variable is through the metric of variance, with a high variance corresponding to high uncertainty.
 
-![Estimate the current state using the model ](../.gitbook/assets/kalman-filter-state-projection.png)
+With that, we can begin to understand how the Kalman filter works. We will begin with the prediction step:
 
-Generally, for FTC scale applications, 'U' is simply an estimate of how much the estimate has changed since t-1. Such as the change in angle between the t and t-1.
+$$x_t=x_{t-1}+u_t$$
 
-This is a very basic estimation of the sensor state which can then be improved with feedback:
+In this equation, $$x$$ represents the value of the variable we want to track and u represents how much we believe the value will change. You will notice that $$x$$ has subscript which denotes the time step, with t-1 meaning the previous time step and t being the current time step. Putting this all together, this equation shows that our predicted value is the sum of our previously estimated value and the amount we believe the value will change. The value of $$u_t$$ is something you will need to determine yourself how to calculate (ex. Change in position from odometry for velocity).
 
-![Using the Kalman gain and a sensor measurement, use feedback on the estimate.](../.gitbook/assets/kalman-gain-op.png)
+When we make a prediction, we are also changing the uncertainty we have in that variable. This takes form in the following equation:
 
-This process of projecting the state forward using the first equation and then augmenting that estimation using a sensor estimate and feedback will repeat continuously. If the system is observable and the Kalman gain is stable, the filter will theoretically converge on the system's actual state.
+$$p_t = p_{t-1} + q$$
 
-_**"For a Kalman filter you are not so much interested in the "stability" of**_**  x̂ **_**(full state estimation), but in the error between x (the actual state) and**_** x̂**_**. Because if this error goes to zero, then**_** x̂ **_**will become equal to x, which is what we want."**_
+Here, $$p$$ represents the variance of $$x$$ and $$q$$ represents the variance of our model. When we use our model, we always add uncertainty to our estimate because we can’t be certain our model is correct. The amount of uncertainty in our model, $$q$$, is something that you will have to tune to your system.
 
-_In this quote,_ **x̂** _refers to the state estimate and **x** refers to the true state._
+Now that we have a prediction for what our variable will be, we will combine it with our sensor measurement. We update our value using this equation:
 
-source: Kwin van der Veen ([https://math.stackexchange.com/users/76466/kwin-van-der-veen](https://math.stackexchange.com/users/76466/kwin-van-der-veen)), Show stability of Kalman filter, URL (version: 2017-04-13): [https://math.stackexchange.com/q/2057891](https://math.stackexchange.com/q/2057891)
+$$x_t = x_{t-1}+K_t(z_t-x_t)$$
 
-### wow.
+In this equation, $$z_t$$ is the value of our measurement and Kt is a constant between $$0$$ and $$1$$ that we will later define. The expression $$(z_t-x_t)$$ is the difference from the new measurement we just made and what we have already estimated the state to be. That is being multiplied by $$K_t$$, which is also called the Kalman gain. This number dictates the influence of the measurement in the estimate. We will see how this number is calculated next, but notice that if $$K_t=1$$, then $$x_t=z_t$$ and if $$K_t=0$$, $$x_t=x_t$$. The closer $$K_t$$ is to $$1$$, the more trust we put in the measurement, and the closer it is to $$0$$, the more trust we put in our model.
 
-_Take a moment now to realize just how impressive the results of these two equations can be. Using nothing but a few estimates of our system, it is possible for us to eventually observe the **actual** state of our system using the magic of feedback._
+Let’s now compute the Kalman gain as follows:
 
-## Calculation of the Kalman Gain
+$$K_t = \frac{p_t}{p_t+r}$$
 
-Previously we stated that 'if the system is observable and the Kalman gain is stable, the filter will theoretically converge on the system's true state.' The issue now comes down to determining the Kalman gain. Fortunately for us, the Kalman filter also has a solution known as the discrete-time algebraic Riccati equation. This equation will allow us to calculate our system covariance (P), which we can then use to derive the Kalman gain online.
+$$r$$ is the variance in our measurement. You may notice that this formula is a simple proportion, and that makes a lot of sense. If $$p_t$$ is high compared to $$r$$, $$K_t$$ will have a value close to $$1$$. This makes sense because if there is more uncertainty in our model than our measurement we should weigh the measurement more, which a $$K_t$$ value close to $$1$$ achieves. In the opposite case, when $$r$$ is high compared to $$p_t$$ then $$K_t$$ has a value close to $$0$$, favoring the model more than the measurement.
 
-‌ After some simplification, the equation for the covariance and Kalman gain measurement becomes:
+Alas, when we update our estimated value we must also update its uncertainty.&#x20;
 
-![Equations for calculating Kalman Gain and covariance.](../.gitbook/assets/kalman-gain-and-covariance-calculation.png)
+$$p_t=(1-K_t)p_t$$
 
-These equations, when initially presented, will likely leave one with even more questions than they had before. This result is due to the significant amount of apparently unknown variables.
-
-For A's value, we first need to understand a bit about state-space representation, which is the method of modeling used by modern control theory.
-
-![Explaination for A's value](../.gitbook/assets/fix-typo-aaaa.png)
-
-Now we have our A 'Matrix' which is simply a scalar value of 1. In addition to this, we now understand how the initial prediction of our system's state was derived.
-
-Next, we need to find **H**.
-
-H is what is known as the sensor transition matrix and this matrix tells us which of our system's states are directly observable by a sensor. **Since we are dealing with a SISO system and we know for a fact that it is an observable state because we have a value for Z in the feedback equation then the value for H **_**must be equal to 1**_**.** We know this because the real feedback equation actually contains this H matrix multiplied by our system's state!
-
-![Previous Feedback equation but with the H term for clarity.](../.gitbook/assets/real-feedback-term.png)
-
-In a more extensive system, the H matrix would ensure we only perform feedback on the states that we can directly measure from the sensors available. **It is simply just equal to 1 and can. Therefore, we can largely ignore it.**
-
-_We initialize these to a simple initial guess for the covariance (P) and the Kalman gain (K) as they will be iteratively optimized later._
-
-Finally, that leaves the model and sensor covariances known as Q and R. These are values that we, the implementor of the Kalman filter, have to determine. Large values of Q correspond with high trust in the model (estimate before feedback) accuracy, and large values of R correspond with high accuracy of the sensor value Z. The process of using the [DARE ](https://en.wikipedia.org/wiki/Algebraic\_Riccati\_equation)(discrete-time algebraic Riccati equation) to find P is done to optimize for a value of K that minimizes a cost function constrained by Q, and R. Changing Q and R will change how the Kalman gain is computed and will therefore directly impact your sensor performance.
-
-One may have now realized that each of these 'matrices' is just a single scalar value for our applications. The result of this finding means that we can simplify the equations for calculating Kalman Gain and covariance to:
-
-![Much simplified equations for covariance and Kalman Gain ](../.gitbook/assets/covariance-and-kalman-gain-simplified-equation-derivation.png)
+Since $$K_t$$ ranges from $$0$$ to $$1$$, $$(1-K_t)$$ will also range from $$0$$ and $$1$$, so our measurement will always decrease uncertainty in our estimate. When $$K_t$$ is close to $$0$$, we do not factor in the measurement much and therefore the uncertainty remains largely unchanged. When $$K_t$$ is close to $$1$$, we are very confident in our measurement and therefore will have low uncertainty.
 
 ## Putting it all together
 
-Finally, we have independently derived each of the equations we need for our SISO Kalman filter. Now we can put them together and then we will be able to effectively implement our filter in software. Taking each simplified part and putting them into a computable procedure will yield:
+Finally, we have each of the equations we need for our single input-single output Kalman filter. Now we can put them together and then we will be able to effectively implement our filter in software. Taking each simplified part and putting them into a computable procedure will yield:
 
-![Procedure for our SISO Kalman Filter](../.gitbook/assets/final-kalman-filter-derivation.png)
+**Set Initial Conditions**
+
+$$x=\text{initial system state}$$&#x20;
+
+$$q=\text{model variance}$$&#x20;
+
+$$r=\text{sensor variance}$$&#x20;
+
+$$P=\text{initial guess}$$&#x20;
+
+$$K=\text{initial guess}$$
+
+**loop:**
+
+1. $$x_t=x_{t-1}+u_t$$                         project our state estimate
+2. $$p_t = p_{t-1} + q$$                           project our variance
+3. $$K_t = \frac{p_t}{p_t+r}$$                                 calculate the Kalman gain
+4. $$x_t = x_{t-1}+K_t(z_t-x_t)$$       update estimation based on sensor reference
+5. $$p_t=(1-K_t)p_t$$                       update error variance
 
 ## Kalman Filter Pseudocode
 
@@ -117,9 +117,10 @@ Finally, you have now implemented one of the most important filters in modern co
 
 Here you can find a Jupyter notebook for a Kalman filter that fuses a motion profile and velocity sensor: [https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb](https://github.com/BenCaunt/Kalman-Filter-Experiments/blob/main/velocity%20kalman%20filter%20example%20.ipynb)
 
-
 ## Multiple Sensors
+
 You can also use multiple sensors with the Kalman Filter! For each loop, you can first run a prediction and then for each additional sensor can have an update loop. In some cases, however, you'd be better off using a weighted average of all the sensor readings.
+
 ## Limitations of our work
 
 For simplicity's sake, we made the assumption that the majority of systems we will be dealing with in FTC are single-input, single-output systems. Unfortunately, this is not guaranteed and you may have to end up with a more complicated filter where you must use matrices instead of scalar values. For that, you will need to use a library such as [EJML ](http://ejml.org/wiki/index.php?title=Main\_Page)and remove lots of the simplifications that we made.
