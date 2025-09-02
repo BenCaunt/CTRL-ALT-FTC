@@ -65,7 +65,7 @@ $$
 u(t)=-k_1x-k_2\dot{x}
 $$
 
-​This control law will stabalize `x` and `x-dot` to the state of zero but in many systems we want to go to a state other than zero. We can generalize this control law for any desired state by the final control law:
+​This control law will stabilize `x` and `x-dot` to the state of zero but in many systems we want to go to a state other than zero. We can generalize this control law for any desired state by the final control law:
 
 $$
 \begin{bmatrix}x_r-x\\ \:\:\:\dot{x_r}-\:\dot{x}\end{bmatrix}\begin{bmatrix}k_1\\ \:k_2\end{bmatrix}=k_1(x_r-x)+k_2(\dot{x_r}-\dot{x})
